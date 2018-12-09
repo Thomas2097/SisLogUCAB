@@ -1,0 +1,201 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* IMPORTANTE! Traten de no modificar este archivo, si necesitan crear nuevos estilos css, creen un nuevo archivo .css*/
+header {
+  background-color: #333333;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+nav {
+  margin: 0;
+  padding: 5px 0;
+}
+
+nav li {
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-block;
+  width: 80px;
+  margin: 0 10px;
+  height: 5px;
+}
+
+nav li a {
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-block;
+  width: 80px;
+  margin: 0 10px;
+}
+
+#wrapper {
+	background-color: #D5A6BD;
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1280px;
+	min-width: 961px;
+	border-radius: 10px 10px 10px 10px;
+	top: 80px;
+
+
+}
+#cabecera {
+	background-color: gainsboro;
+	height: 100px;
+	width: 100%;
+	float: left;
+	background-image: url(../assets/logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: auto 200px;
+	border-radius: 10px 10px 0px 0px;
+	padding-top: 80px;
+
+}
+#espaciolateral {
+	width: 20%;
+	padding-top: 10px;
+	float: left;
+	border-radius: 10px 10px 0px 0px;
+}#centro {
+	width: 80%;
+	float: left;
+	background-repeat: no-repeat;
+	background-position:right bottom;
+	
+}h1 {
+	font-family: "BankGothic Md BT", tahoma, "Arial Black", sans-serif;
+	background-color: gray;
+	text-align: center;
+	color: #F0F0F0;
+	margin: 0px;
+	line-height: 2em;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: ffffffff;
+	border-radius: 10px 10px 0px 0px;
+}
+span {
+	font-family: "BankGothic Md BT", tahoma, "Arial Black", sans-serif;
+	margin: 120px;
+	line-height: 2.5cm;
+	font-size: 30px;
+	text-align: right;
+}p{
+	text-align:justify;
+}
+
+#lateral ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#lateral li {
+	display: block;
+}
+#lateral a {
+	text-decoration: none;
+	color: #223640;
+	display: block;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	transition: all 0.8s ease-in;
+	font-weight:bold;
+}
+#principal {
+	background-color: #FFF;
+	width: 98%;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px 10px 10px 10px;
+	line-height:  30px;
+	
+	
+}
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	background-color: #FFF;
+	line-height: normal;
+}#lateral {
+	background-color: #FFF;
+	width: 96%;
+	margin-top: 15px;
+	padding-bottom: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px 10px 10px 10px;
+}#pie {
+	background-color: gainsboro;
+	height: 50px;
+	padding-top: 3px;
+	padding-left: 15px;
+	clear: both;
+	border-radius: 0px 0px 10px 10px;
+	
+}table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 15px;
+}td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}tr:nth-child(even) {
+    background-color: #dddddd;
+}#lateral a:hover {
+	color: #fff;
+	background-color: lightgray;
+	padding-left: 40px;
+	text-shadow: 1px 1px 5px #336699;
+}
+
+
+#top ul {
+    list-style-type: none;
+    margin-top: inherit;
+    padding-top: 5px;
+    overflow: hidden;
+	margin-right: 50px;
+	
+	
+	
+}
+
+#top li {
+	float: right;
+    display:block;
+	margin-top: 20px;
+	margin-right: 0px;
+    text-align: center;
+	background-color: gray;
+    padding: 14px 16px;
+    text-decoration:none;
+	
+}
+#top li:hover{
+	background-color: dimgray;
+	transition: all 0.8s ease-in;
+	
+}
+
+#top a{
+	color:inherit;
+	text-decoration: none;
+}
+
+#top h2{
+	margin-left: 20px;
+	float: left;
+}
+

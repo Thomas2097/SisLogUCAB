@@ -54,7 +54,7 @@
         <div id="centro">
             <div id="principal">
                 <h1>Registrar un Cliente</h1>
-                <div style="margin-left:16%; margin-top:30px">
+             <!--   <div style="margin-left:16%; margin-top:30px">-->
                     <div id="formulario">
                         <form action="{{ action('ClientesController@store') }}" method="post">
                             {{ csrf_field() }}
@@ -136,7 +136,7 @@
                     </div>
 
 
-                </div>
+                <!--</div>-->
 
             </div>
         </div>

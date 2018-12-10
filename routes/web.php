@@ -13,10 +13,25 @@ use SisLogUCAB\Cliente;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
-Route::resource('/clientes','ClientesController');
+/*Route::get('/clientes/borrar',function(){
+	
+	return view('clientes.delete');
+});*/
+
+Route::get('/clientes/create','ClientesController@create');
+Route::get('/clientes','ClientesController@index');
+Route::post('/clientes','ClientesController@store');
+Route::get('/clientes/delete','ClientesController@indexDelete');
+Route::get('/clientes/update','ClientesController@indexUpdate');
+Route::get('/clientes/{codigo}','ClientesController@destroy');
+/*Route::get('/clientes/edit/{codigo}','ClientesController@edit');
+Route::post('/clientes/modificar/{codigo}','ClientesController@update');*/
+//Route::resource('/clientes','ClientesController');
+
 
 
 /*Route::get('/crearCliente','ClientesController@create');

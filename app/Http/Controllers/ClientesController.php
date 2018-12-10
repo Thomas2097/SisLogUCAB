@@ -8,11 +8,7 @@ use SisLogUCAB\Cliente;
 
 class ClientesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         
@@ -22,11 +18,22 @@ class ClientesController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function indexDelete()
+    {
+        $clientes=Cliente::all();
+
+        return view("clientes.delete", compact("clientes"));
+
+    }
+
+    public function indexUpdate()
+    {
+        $clientes=Cliente::all();
+
+        return view("clientes.update", compact("clientes"));
+
+    }
+
     public function create()
     {
         
@@ -34,15 +41,8 @@ class ClientesController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-
         $cliente=new Cliente;
 
         $cliente->cedula=$request->cedula;
@@ -57,84 +57,30 @@ class ClientesController extends Controller
 
         $cliente->save();
         return view("clientes.create");
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+/*
+    public function edit($codigo)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, $codigo)
     {
-        return view("clientes.modificar");
+        //return view("clientes.modificar");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+*/
+    public function destroy($codigo)
     {
-        return view("clientes.eliminar");
+
+       Cliente::destroy($codigo);
+
     }
 }
-
-/*<?php
-
-namespace SisLogUCAB\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class ClientesController extends Controller{
-
-    public function inicio(){
-
-        return view ("inicio");
-    }
-
-    public function crearCliente(){
-
-        return view ("crearCliente");
-    }
-
-    public function modificarCliente(){
-
-        return view ("modificarCliente");
-    }
-
-    public function consultarCliente(){
-
-        return view ("consultarCliente");
-    }
-
-    public function eliminarCliente(){
-
-        return view ("eliminarCliente");
-    }
-}*/

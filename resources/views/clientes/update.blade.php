@@ -45,15 +45,15 @@
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/clientes/create"">Crear</a></li>
                     <li><a href="/clientes">Consultar</a></li>
-                    <li><a href="/clientes/update">Modificar</a></li>
-                    <li><a href="/clientes/delete"  style="background-color: green;">Eliminar</a></li>
+                    <li><a href="/clientes/update"style="background-color: green;">Modificar</a></li>
+                    <li><a href="/clientes/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Eliminar un Cliente</h1>
+                <h1>Editar un Cliente</h1>
                 
                 <div>
                 <table id="clientes" width="80%" cellspacing="0">
@@ -71,7 +71,7 @@
                         <td>{{ $cliente->nombre }}</td>
                         <td>{{ $cliente->apellido }}</td>
                         <td>{{ $cliente->cedula }}</td>
-                        <td><a href="/clientes/{{ $cliente->codigo }}"/>Eliminar</td>
+                        <td><a href="/clientes/edit/{{ $cliente->codigo }}"/>Modificar</td>
                     </tr>
                     @endforeach
                 </table>

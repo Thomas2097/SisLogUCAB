@@ -56,7 +56,7 @@
         <div id="centro">
             <div id="principal">
                 <h1>Consultar clientes</h1>
-                <div style="margin-left:16%; margin-top:30px">
+ <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="clientes" width="80%" cellspacing="0">
                             <thead>
@@ -85,7 +85,7 @@
 
                     </div>
 
-                </div>
+ <!--               </div>-->
             </div>
         </div>
         <div id="pie">

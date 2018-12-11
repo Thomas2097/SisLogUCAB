@@ -30,7 +30,7 @@ class ClientesController extends Controller
     {
         $clientes=Cliente::all();
 
-        return view("clientes.update", compact("clientes"));
+        return view("clientes.edit", compact("clientes"));
 
     }
 
@@ -64,23 +64,47 @@ class ClientesController extends Controller
     {
         //
     }
-/*
+
     public function edit($codigo)
     {
-
+        $cliente = Cliente::where('codigo',$codigo)->first();
+        return view('clientes.update',['cliente'=>$cliente]);
+        //return view("clientes.edit", ["cliente"=>Cliente::findOrFail($codigo)]);
     }
 
 
     public function update(Request $request, $codigo)
     {
-        //return view("clientes.modificar");
+        $nuevoCedula= $request->input('cedula');
+        $nuevoNombre = $request->input('nombre');
+        $nuevoApellido = $request->input('apellido');
+        $nuevoFecha_nac = $request->input('fecha_nac');
+        $nuevoFk_lugar = $request->input('fk_lugar');
+        $nuevoEdo_civil = $request->input('edo_civil');
+        $nuevoEmpresa = $request->input('empresa');
+        $nuevoLvip = $request->input('lvip');
+        //----------------------------------------------
+        $cliente = Cliente::find($codigo);
+        $cliente->cedula = $nuevoCedula;
+        $cliente->nombre = $nuevoNombre;
+        $cliente->apellido = $nuevoApellido;
+        $cliente->fecha_nac = $nuevoFecha_nac;
+        $cliente->fk_lugar = $nuevoFk_lugar;
+        $cliente->edo_civil = $nuevoEdo_civil;
+        $cliente->empresa = $nuevoEmpresa;
+        $cliente->lvip = $nuevoLvip;
+        $cliente->save();
+
+        return redirect('clientes/update');
     }
 
-*/
+
     public function destroy($codigo)
     {
 
        Cliente::destroy($codigo);
+
+       return redirect('clientes/delete');
 
     }
 }

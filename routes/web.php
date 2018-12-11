@@ -27,6 +27,8 @@ Route::get('/clientes','ClientesController@index');
 Route::post('/clientes','ClientesController@store');
 Route::get('/clientes/delete','ClientesController@indexDelete');
 Route::get('/clientes/update','ClientesController@indexUpdate');
+Route::get('/clientes/edit/{codigo}', 'ClientesController@edit');
+Route::post('clientes/update/{codigo}','ClientesController@update');
 Route::get('/clientes/{codigo}','ClientesController@destroy');
 /*Route::get('/clientes/edit/{codigo}','ClientesController@edit');
 Route::post('/clientes/modificar/{codigo}','ClientesController@update');*/

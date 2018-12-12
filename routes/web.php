@@ -30,10 +30,7 @@ Route::get('/clientes/update','ClientesController@indexUpdate');
 Route::get('/clientes/edit/{codigo}', 'ClientesController@edit');
 Route::post('clientes/update/{codigo}','ClientesController@update');
 Route::get('/clientes/{codigo}','ClientesController@destroy');
-/*Route::get('/clientes/edit/{codigo}','ClientesController@edit');
-Route::post('/clientes/modificar/{codigo}','ClientesController@update');*/
-//Route::resource('/clientes','ClientesController');
-
+//
 Route::get('/roles/create','RolesController@create');
 Route::get('/roles','RolesController@index');
 Route::post('/roles','RolesController@store');
@@ -42,6 +39,16 @@ Route::get('/roles/update','RolesController@indexUpdate');
 Route::get('/roles/edit/{codigo}', 'RolesController@edit');
 Route::post('roles/update/{codigo}','RolesController@update');
 Route::get('/roles/{codigo}','RolesController@destroy');
+//
+Route::get('/sucursales/create','SucursalesController@create');
+Route::get('/sucursales','SucursalesController@index');
+Route::post('/sucursales','SucursalesController@store');
+Route::get('/sucursales/delete','SucursalesController@indexDelete');
+Route::get('/sucursales/update','SucursalesController@indexUpdate');
+Route::get('/sucursales/edit/{codigo}', 'SucursalesController@edit');
+Route::post('sucursales/update/{codigo}','SucursalesController@update');
+Route::get('/sucursales/{codigo}','SucursalesController@destroy');
+//
 
 
 

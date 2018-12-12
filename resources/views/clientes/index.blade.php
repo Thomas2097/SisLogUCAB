@@ -67,6 +67,7 @@
                                 <th>Fecha de Nacimiento</th>
                                 <th>Estado Civil</th>
                                 <th>¿L-Vip?</th>
+                                <th>Dirección</th>
                             </thead>
                             <tbody>
                                 @foreach ($clientes as $cliente)
@@ -78,6 +79,7 @@
                                     <td>{{$cliente->fecha_nac}}</td>
                                     <td>{{$cliente->edo_civil}}</td>
                                     <td>{{$cliente->lvip}}</td>
+                                    <td>{{$cliente->fk_lugar}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

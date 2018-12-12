@@ -94,7 +94,9 @@
                                     <td>Dirección:</td>
                                     <td>
                                         <select name="fk_lugar">
-                                            <option value="1">Parroquia1</option>
+                                            @foreach ($lugares as $lug)
+                                            <option value="{{$lug->codigo}}">{{$lug->nombre}}</option>
+                                            @endforeach
                                         </select>
                                     </td>
                                 </tr>

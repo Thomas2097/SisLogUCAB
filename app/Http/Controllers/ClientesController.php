@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use SisLogUCAB\Cliente;
 
+use DB;
+
 class ClientesController extends Controller
 {
 
@@ -20,6 +22,7 @@ class ClientesController extends Controller
 
     public function indexDelete()
     {
+
         $clientes=Cliente::all();
 
         return view("clientes.delete", compact("clientes"));
@@ -28,6 +31,7 @@ class ClientesController extends Controller
 
     public function indexUpdate()
     {
+
         $clientes=Cliente::all();
 
         return view("clientes.edit", compact("clientes"));
@@ -36,8 +40,10 @@ class ClientesController extends Controller
 
     public function create()
     {
-        
-        return view("clientes.create");
+
+        $lugares=DB::table('lugar')->where('tipo','=','parroquia')->get();
+
+        return view("clientes.create", ["lugares"=>$lugares]);
 
     }
 
@@ -56,7 +62,8 @@ class ClientesController extends Controller
         $cliente->fk_usuario=$request->fk_usuario;
 
         $cliente->save();
-        return view("clientes.create");
+        return redirect('clientes/create');
+        //return view("clientes.create");
 
     }
 
@@ -68,7 +75,8 @@ class ClientesController extends Controller
     public function edit($codigo)
     {
         $cliente = Cliente::where('codigo',$codigo)->first();
-        return view('clientes.update',['cliente'=>$cliente]);
+        $lugares = DB::table('lugar')->where('tipo', '=', 'parroquia')->get();
+        return view('clientes.update',["cliente"=>$cliente, "lugares"=>$lugares]);
         //return view("clientes.edit", ["cliente"=>Cliente::findOrFail($codigo)]);
     }
 

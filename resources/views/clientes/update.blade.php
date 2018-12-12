@@ -93,8 +93,11 @@
                                 <tr>
                                     <td>Dirección:</td>
                                     <td>
-                                        <select name="fk_lugar" value="{{ $cliente->fk_lugar}}">
-                                            <option value="1">Parroquia1</option>
+                                        <select name="fk_lugar">
+                                            @foreach ($lugares as $lug)
+                                            <option value="{{$lug->codigo}}">{{$lug->nombre}}</option>
+                                            @endforeach
+                                        </select>
                                         </select>
                                     </td>
                                 </tr>

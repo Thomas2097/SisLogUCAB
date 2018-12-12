@@ -34,6 +34,15 @@ Route::get('/clientes/{codigo}','ClientesController@destroy');
 Route::post('/clientes/modificar/{codigo}','ClientesController@update');*/
 //Route::resource('/clientes','ClientesController');
 
+Route::get('/roles/create','RolesController@create');
+Route::get('/roles','RolesController@index');
+Route::post('/roles','RolesController@store');
+Route::get('/roles/delete','RolesController@indexDelete');
+Route::get('/roles/update','RolesController@indexUpdate');
+Route::get('/roles/edit/{codigo}', 'RolesController@edit');
+Route::post('roles/update/{codigo}','RolesController@update');
+Route::get('/roles/{codigo}','RolesController@destroy');
+
 
 
 /*Route::get('/crearCliente','ClientesController@create');

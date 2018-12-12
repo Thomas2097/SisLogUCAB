@@ -45,37 +45,33 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Clientes</h1>
+                <h1>Roles</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/clientes/create"">Crear</a></li>
-                    <li><a href="/clientes">Consultar</a></li>
-                    <li><a href="/clientes/update">Modificar</a></li>
-                    <li><a href="/clientes/delete"  style="background-color: green;">Eliminar</a></li>
+                    <li><a href="/roles/create"">Crear</a></li>
+                    <li><a href="/roles">Consultar</a></li>
+                    <li><a href="/roles/update"style="background-color: green;">Modificar</a></li>
+                    <li><a href="/roles/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Eliminar un Cliente</h1>
+                <h1>Editar un Rol</h1>
                 
                 <div>
-                <table id="clientes" width="80%" cellspacing="0">
+                <table id="roles" width="80%" cellspacing="0">
                     <thead>
                         <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Cedula</th>
-                        <th>Opcion</th>
+                        <th>Opción</th>
                     </thead>
 
-                    @foreach ($clientes as $cliente)
+                    @foreach ($roles as $rol)
                     <tr>
-                        <td>{{ $cliente->codigo }}</td>
-                        <td>{{ $cliente->nombre }}</td>
-                        <td>{{ $cliente->apellido }}</td>
-                        <td>{{ $cliente->cedula }}</td>
-                        <td><a href="/clientes/{{ $cliente->codigo }}"/>Eliminar</td>
+                        <td>{{ $rol->codigo }}</td>
+                        <td>{{ $rol->nombre }}</td>
+                        <td><a href="/roles/edit/{{ $rol->codigo }}"/>Modificar</td>
                     </tr>
                     @endforeach
                 </table>
@@ -91,7 +87,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#clientes').DataTable();
+            $('#roles').DataTable();
         } );
     </script>
 </body>

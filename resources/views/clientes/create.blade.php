@@ -16,10 +16,14 @@
         <nav>
             <ul> <!--Aquí añadan su módulo, junto con el link, siempre coloquen el CreateEntidad.html como link principal-->
                 <li><a href="/clientes"> Clientes </a></li>
-                <li> Sucursales</li>
-                <li> Empleados </li>
-                <li> Modulo Y</li>
-                <li> Modulo x </li>
+                <li><a href="/sucursales"> Sucursales </a></li>
+                <li><a href="/empleados"> Empleados </a></li>
+                <li><a href="/roles"> Roles </a></li>
+                <li><a href="/usuarios"> Usuarios </a></li>
+                <li><a href="/automoviles"> Automóviles </a></li>
+                <li><a href="/aviones"> Aviones </a></li>
+                <li><a href="/barcos"> Barcos </a></li>
+                <li><a href="/rutas"> Rutas </a></li>
             </ul>
         </nav>
     </header>

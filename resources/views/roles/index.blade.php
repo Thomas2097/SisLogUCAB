@@ -47,43 +47,31 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Clientes</h1>
+                <h1>Roles</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/clientes/create">Crear</a></li>
-                    <li><a href="/clientes" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/clientes/update">Modificar</a></li>
-                    <li><a href="/clientes/delete">Eliminar</a></li>
+                    <li><a href="/roles/create">Crear</a></li>
+                    <li><a href="/roles" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/roles/update">Modificar</a></li>
+                    <li><a href="/roles/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Consultar clientes</h1>
+                <h1>Consultar roles</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
-                        <table id="clientes" width="80%" cellspacing="0">
+                        <table id="roles" width="80%" cellspacing="0">
                             <thead>
                                 <th>Codigo</th>
                                 <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Cédula</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Estado Civil</th>
-                                <th>¿L-Vip?</th>
-                                <th>Dirección</th>
                             </thead>
                             <tbody>
-                                @foreach ($clientes as $cliente)
+                                @foreach ($roles as $rol)
                                 <tr>
-                                    <td>{{$cliente->codigo}}</td>
-                                    <td>{{$cliente->nombre}}</td>
-                                    <td>{{$cliente->apellido}}</td>
-                                    <td>{{$cliente->cedula}}</td>
-                                    <td>{{$cliente->fecha_nac}}</td>
-                                    <td>{{$cliente->edo_civil}}</td>
-                                    <td>{{$cliente->lvip}}</td>
-                                    <td>{{$cliente->fk_lugar}}</td>
+                                    <td>{{$rol->codigo}}</td>
+                                    <td>{{$rol->nombre}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -102,7 +90,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#clientes').DataTable();
+            $('#roles').DataTable();
         } );
     </script>
 </body>

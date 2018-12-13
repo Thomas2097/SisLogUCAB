@@ -49,6 +49,16 @@ Route::get('/sucursales/edit/{codigo}', 'SucursalesController@edit');
 Route::post('sucursales/update/{codigo}','SucursalesController@update');
 Route::get('/sucursales/{codigo}','SucursalesController@destroy');
 //
+Route::get('/automoviles/create','AutomovilesController@create');
+Route::get('/automoviles','AutomovilesController@index');
+Route::post('/automoviles','AutomovilesController@store');
+Route::get('/automoviles/delete','AutomovilesController@indexDelete');
+Route::get('/automoviles/update','AutomovilesController@indexUpdate');
+Route::get('/automoviles/edit/{codigo}', 'AutomovilesController@edit');
+Route::post('automoviles/update/{codigo}','AutomovilesController@update');
+Route::get('/automoviles/{codigo}','AutomovilesController@destroy');
+//
+
 
 
 

@@ -1,6 +1,6 @@
 Create table Lugar(
 	codigo serial Not Null Unique,
-	nombre varchar(30) Not Null,
+	nombre varchar(50) Not Null,
 	tipo varchar(30) Not Null,
 	fk_lugar integer,
 	Constraint pk_codigo_lugar primary key (codigo),
@@ -86,9 +86,10 @@ create table Tipo_pago(
 	banco varchar(50),
 	num_chequera integer,
 	tipo_tarjeta varchar(50),
+	num_tarjeta varchar(50),
 	tipo varchar(20) not null,
 	constraint pk_codigo_Tipo_pago primary key(codigo),
-	constraint check_tipo_tarjeta_Tipo_pago check(tipo_tarjeta in('corriente','ahorro')),
+	constraint check_tipo_cuenta_Tipo_pago check(tipo_cuenta in('corriente','ahorro')),
 	constraint check_tipo_Tipo_pago check(tipo in ('efectivo','transferencia','t_credito','t_debito','cheque'))
 );
 
@@ -227,9 +228,9 @@ Create table Empleado(
 
 Create Table Taller(
 	codigo serial Not Null unique,
-	nombre varchar(30) Not Null,
+	nombre varchar(50) Not Null,
 	pag_web varchar(30) Not Null,
-	correo varchar(30) Not Null,
+	correo varchar(50) Not Null,
 	Constraint pk_codigo_Taller Primary key (codigo)
 );
 										
@@ -301,13 +302,13 @@ Create table Paq_Tip(
 										
 Create Table Telefono(
 	codigo serial Not Null Unique,
-	numero integer Not Null,
+	numero bigint Not Null,
 	tipo varchar(10) Not Null,
-	fk_cliente integer Not Null,
-	fk_taller integer Not Null,
-	fk_persona_contacto integer Not Null,
-	fk_sucursal integer Not Null,
-	fk_empleado integer Not Null,
+	fk_cliente integer,
+	fk_taller integer,
+	fk_persona_contacto integer,
+	fk_sucursal integer,
+	fk_empleado integer ,
 	Constraint pk_codigo_Telefono primary key (codigo),
 	Constraint fk_Cliente_Telefono foreign key (fk_cliente) references Cliente(codigo),
 	Constraint fk_Persona_contacto_Telefono foreign key (fk_persona_contacto) references Persona_contacto(codigo),
@@ -330,7 +331,6 @@ Create Table Barco(
 	fk_sucursal integer not null,
 	Constraint pk_codigo_Barco primary key (codigo),
 	Constraint fk_Sucursal_Barco foreign key (fk_sucursal) references Sucursal(codigo),
-	Constraint check_clasificacion_barco check(clasificacion IN ('terrestre','maritimo','aereo'))
 );
 										 
 Create Table Zona(

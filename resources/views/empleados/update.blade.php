@@ -45,56 +45,70 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Clientes</h1>
+                <h1>Empleados</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/clientes/create">Crear</a></li>
-                    <li><a href="/clientes" >Consultar</a></li>
-                    <li><a href="/clientes/update"style="background-color: green;">Modificar</a></li>
-                    <li><a href="/clientes/delete">Eliminar</a></li>
+                    <li><a href="/empleados/create">Crear</a></li>
+                    <li><a href="/empleados" >Consultar</a></li>
+                    <li><a href="/empleados/update"style="background-color: green;">Modificar</a></li>
+                    <li><a href="/empleados/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Editar al Cliente: {{ $cliente->codigo }}</h1>
+                <h1>Editar al Empleado: {{ $empleado->codigo }}</h1>
              <!--   <div style="margin-left:16%; margin-top:30px">-->
                     <div id="formulario">
-                        <form action="/clientes/update/{{$cliente->codigo}}" method="post">
+                        <form action="/empleados/update/{{$empleado->codigo}}" method="post">
                             {{ csrf_field() }}
                             <table>
                                 <tr>
                                     <td>Cédula:</td>
                                     <td>
-                                        <input type="text" name="cedula" value="{{ $cliente->cedula }}" />
+                                        <input type="text" name="cedula" value="{{ $empleado->cedula }}" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Nombre:</td>
                                     <td>
-                                        <input type="text" name="nombre" value="{{ $cliente->nombre }}"/>
+                                        <input type="text" name="nombre" value="{{ $empleado->nombre }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Apellido:</td>
                                     <td>
-                                        <input type="text" name="apellido" value="{{ $cliente->apellido }}" />
+                                        <input type="text" name="apellido" value="{{ $empleado->apellido }}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Correo personal:</td>
+                                    <td>
+                                        <input type="text" name="correo_pers" value="{{ $empleado->correo_pers }}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Correo de la empresa:</td>
+                                    <td>
+                                        <input type="text" name="correo_emp" value="{{ $empleado->correo_emp }}" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Fecha de Nacimiento:</td>
                                     <td>
-                                        <input type="date" name="fecha_nac" value="{{ $cliente->fecha_nac}}">
+                                        <input type="date" name="fecha_nac" value="{{ $empleado->fecha_nac}}">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Dirección:</td>
+                                    <td>Nivel académico:</td>
                                     <td>
-                                        <select name="fk_lugar">
-                                            @foreach ($lugares as $lug)
-                                            <option value="{{$lug->codigo}}">{{$lug->nombre}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" name="niv_acad" value="{{ $empleado->niv_acad }}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Profesión:</td>
+                                    <td>
+                                        <input type="text" name="profesion" value="{{ $empleado->profesion }}" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -106,16 +120,42 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Empresa:</td>
+                                    <td>Número de hijos:</td>
                                     <td>
-                                        <input type="text" name="empresa" value="{{ $cliente->empresa }}"/>
+                                        <input type="text" name="num_hijos" value="{{ $empleado->num_hijos}}" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>L-Vip:</td>
+                                    <td>Fecha de Ingreso a la compañía:</td>
                                     <td>
-                                        <input type="radio" name="lvip" value="si">Sí
-                                        <input type="radio" name="lvip" value="no">No
+                                        <input type="date" name="fecha_ingr" value="{{ $empleado->fecha_ingr}}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¿El empleado se encuentra activo?</td>
+                                    <td>
+                                        <input type="radio" name="activo" value="no">No
+                                        <input type="radio" name="activo" value="si">Sí
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Cargo:</td>
+                                    <td>
+                                        <select name="fk_cargo">
+                                            @foreach ($cargos as $car)
+                                            <option value="{{$car->codigo}}">{{$car->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Dirección:</td>
+                                    <td>
+                                        <select name="fk_lugar">
+                                            @foreach ($lugares as $lug)
+                                            <option value="{{$lug->codigo}}">{{$lug->nombre}}</option>
+                                            @endforeach
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>

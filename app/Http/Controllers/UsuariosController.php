@@ -8,6 +8,8 @@ use SisLogUCAB\Usuario;
 
 use SisLogUCAB\Cliente;
 
+use SisLogUCAB\Empleado;
+
 use DB;
 
 class UsuariosController extends Controller
@@ -98,6 +100,7 @@ class UsuariosController extends Controller
     {
 
 		Cliente::where('fk_usuario','=',$codigo)->delete();
+        Empleado::where('fk_usuario','=',$codigo)->delete();
        	Usuario::destroy($codigo);
        	return redirect('usuarios/delete');
 

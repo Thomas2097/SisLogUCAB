@@ -17,11 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/clientes/borrar',function(){
-	
-	return view('clientes.delete');
-});*/
-
 Route::get('/clientes/create','ClientesController@create');
 Route::get('/clientes','ClientesController@index');
 Route::post('/clientes','ClientesController@store');
@@ -84,6 +79,15 @@ Route::get('/usuarios/update','UsuariosController@indexUpdate');
 Route::get('/usuarios/edit/{codigo}', 'UsuariosController@edit');
 Route::post('usuarios/update/{codigo}','UsuariosController@update');
 Route::get('/usuarios/{codigo}','UsuariosController@destroy');
+//
+Route::get('/empleados/create','EmpleadosController@create');
+Route::get('/empleados','EmpleadosController@index');
+Route::post('/empleados','EmpleadosController@store');
+Route::get('/empleados/delete','EmpleadosController@indexDelete');
+Route::get('/empleados/update','EmpleadosController@indexUpdate');
+Route::get('/empleados/edit/{codigo}', 'EmpleadosController@edit');
+Route::post('empleados/update/{codigo}','EmpleadosController@update');
+Route::get('/empleados/{codigo}','EmpleadosController@destroy');
 //
 
 

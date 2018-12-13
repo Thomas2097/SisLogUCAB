@@ -97,9 +97,9 @@ class UsuariosController extends Controller
     public function destroy($codigo)
     {
 
-       Cliente::where('fk_usuario','=',$codigo)->delete();
-       Usuario::destroy($codigo);
-       return redirect('usuarios/delete');
+		Cliente::where('fk_usuario','=',$codigo)->delete();
+       	Usuario::destroy($codigo);
+       	return redirect('usuarios/delete');
 
     }
 }

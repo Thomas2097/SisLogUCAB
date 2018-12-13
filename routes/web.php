@@ -66,7 +66,16 @@ Route::get('/aviones/update','AvionesController@indexUpdate');
 Route::get('/aviones/edit/{codigo}', 'AvionesController@edit');
 Route::post('aviones/update/{codigo}','AvionesController@update');
 Route::get('/aviones/{codigo}','AvionesController@destroy');
-//ABAJO VA BARCO XD
+//
+Route::get('/barcos/create','BarcosController@create');
+Route::get('/barcos','BarcosController@index');
+Route::post('/barcos','BarcosController@store');
+Route::get('/barcos/delete','BarcosController@indexDelete');
+Route::get('/barcos/update','BarcosController@indexUpdate');
+Route::get('/barcos/edit/{codigo}', 'BarcosController@edit');
+Route::post('barcos/update/{codigo}','BarcosController@update');
+Route::get('/barcos/{codigo}','BarcosController@destroy');
+//
 Route::get('/usuarios/create','UsuariosController@create');
 Route::get('/usuarios','UsuariosController@index');
 Route::post('/usuarios','UsuariosController@store');

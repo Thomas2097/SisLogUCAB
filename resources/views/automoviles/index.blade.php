@@ -69,7 +69,7 @@
                                 <th>Clasificación</th>
                                 <th>Capacidad de carga</th>
                                 <th>Descripción</th>
-                                <th>Serial carrosería</th>
+                                <th>Serial de carrocería</th>
                                 <th>Modelo</th>
                                 <th>Sucursal</th>
                             </thead>

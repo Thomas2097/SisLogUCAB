@@ -57,7 +57,7 @@
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Editar al Rol: {{ $cliente->codigo }}</h1>
+                <h1>Editar al Cliente: {{ $cliente->codigo }}</h1>
              <!--   <div style="margin-left:16%; margin-top:30px">-->
                     <div id="formulario">
                         <form action="/clientes/update/{{$cliente->codigo}}" method="post">

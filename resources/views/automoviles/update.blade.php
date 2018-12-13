@@ -66,36 +66,36 @@
                                 <tr>
                                     <td>Peso:</td>
                                     <td>
-                                        <input type="text" name="peso" />
+                                        <input type="text" name="peso" value="{{ $automovil->peso }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Capacidad de carga (kg):</td>
                                     <td>
-                                        <input type="text" name="capacidad_carga" />
+                                        <input type="text" name="capacidad_carga" value="{{ $automovil->capacidad_carga }}"/>
                                     </td>
                                 </tr>
                                 <td>Descripcion:</td>
                                     <td>
-                                        <input type="text" name="descripcion" />
+                                        <input type="text" name="descripcion" value="{{ $automovil->descripcion }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Clasificación:</td>
                                     <td>
-                                        <input type="text" name="clasificacion" />
+                                        <input type="text" name="clasificacion" value="{{ $automovil->clasificacion }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Serial de la carrocería</td>
                                     <td>
-                                        <input type="text" name="serial_carroceria" />
+                                        <input type="text" name="serial_carroceria" value="{{ $automovil->serial_carroceria }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Serial del motor</td>
                                     <td>
-                                        <input type="text" name="serial_motor" />
+                                        <input type="text" name="serial_motor" value="{{ $automovil->serial_motor }}"/>
                                     </td>
                                 </tr>
                                 <tr>

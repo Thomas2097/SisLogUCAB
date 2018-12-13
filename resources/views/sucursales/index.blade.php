@@ -62,7 +62,7 @@
                 <h1>Consultar sucursales</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
-                        <table id="sucusales" width="80%" cellspacing="0">
+                        <table id="sucursales" width="80%" cellspacing="0">
                             <thead>
                                 <th>Codigo</th>
                                 <th>Nombre</th>

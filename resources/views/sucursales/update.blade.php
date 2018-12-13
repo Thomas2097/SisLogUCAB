@@ -45,7 +45,7 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Clientes</h1>
+                <h1>Sucursales</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/sucursales/create">Crear</a></li>
                     <li><a href="/sucursales" >Consultar</a></li>
@@ -66,13 +66,13 @@
                                 <tr>
                                     <td>Nombre:</td>
                                     <td>
-                                        <input type="text" name="nombre" />
+                                        <input type="text" name="nombre" value="{{ $sucursal->nombre }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Capacidad (metros cuadrados):</td>
                                     <td>
-                                        <input type="text" name="capacidad_m2" />
+                                        <input type="text" name="capacidad_m2" value="{{ $sucursal->capacidad_m2 }}"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -88,19 +88,19 @@
                                 <tr>
                                     <td>Correo:</td>
                                     <td>
-                                        <input type="text" name="correo" />
+                                        <input type="text" name="correo" value="{{ $sucursal->correo }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Capacidad de los Almacenes:</td>
                                     <td>
-                                        <input type="text" name="capacidad_alm" />
+                                        <input type="text" name="capacidad_alm" value="{{ $sucursal->capacidad_alm }}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Tamaño del Depósito:</td>
                                     <td>
-                                        <input type="text" name="tam_deposito" />
+                                        <input type="text" name="tam_deposito" value="{{ $sucursal->tam_deposito }}"/>
                                     </td>
                                 </tr>
                                 <tr>

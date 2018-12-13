@@ -58,6 +58,15 @@ Route::get('/automoviles/edit/{codigo}', 'AutomovilesController@edit');
 Route::post('automoviles/update/{codigo}','AutomovilesController@update');
 Route::get('/automoviles/{codigo}','AutomovilesController@destroy');
 //
+Route::get('/aviones/create','AvionesController@create');
+Route::get('/aviones','AvionesController@index');
+Route::post('/aviones','AvionesController@store');
+Route::get('/aviones/delete','AvionesController@indexDelete');
+Route::get('/aviones/update','AvionesController@indexUpdate');
+Route::get('/aviones/edit/{codigo}', 'AvionesController@edit');
+Route::post('aviones/update/{codigo}','AvionesController@update');
+Route::get('/aviones/{codigo}','AvionesController@destroy');
+//
 
 
 

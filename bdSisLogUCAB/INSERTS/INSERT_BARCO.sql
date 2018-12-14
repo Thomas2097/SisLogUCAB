@@ -1,4 +1,4 @@
-insert into Barco (peso, tipo_vehiculo, capacidad_carga, descripcion, clasificasion, propulsion, num_pisos, velocidad_max, Fk_sucursal) values
+insert into Barco (peso, tipo_vehiculo, capacidad_carga, descripcion, clasificacion, propulsion, num_pisos, velocidad_max, Fk_sucursal) values
  (1956.778, 'maritimo', 967, 'buque carguero', 'pesado', 12098, 2, 23, 87),
  (1523.431, 'maritimo', 597, 'buque carguero', 'pesado', 16495, 1, 24, 299),
  (1613.149, 'maritimo', 807, 'buque carguero', 'pesado', 14216, 2, 25, 66),

@@ -1,13 +1,4 @@
-INSERT into accion(nombre)values
-('crear'),
-('modificar'),
-('modificar'),
-('eliminar'),
-('consultar'),
-('generar reporte'),
-('enviar paquete');
-
-insert into usu_acc(fecha_accion, fk_usuario, fk_accion) values 
+INSERT into accion(fecha_accion)values
 ('9/17/2018', 1, 3),
 ('9/13/2018', 2, 4),
 ('9/20/2018', 3, 5),

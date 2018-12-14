@@ -66,7 +66,6 @@
                             <thead>
                                 <th>Codigo</th>
                                 <th>Nombre</th>
-                                <th>Contraseña</th>
                                 <th>Rol</th>
                             </thead>
                             <tbody>
@@ -74,7 +73,6 @@
                                 <tr>
                                     <td>{{$usuario->codigo}}</td>
                                     <td>{{$usuario->nombre}}</td>
-                                    <td>{{$usuario->contraseña}}</td>
                                     <td>{{$usuario->fk_rol}}</td>
                                 </tr>
                                 @endforeach

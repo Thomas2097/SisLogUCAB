@@ -64,7 +64,6 @@
                     <thead>
                         <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Contraseña</th>
                         <th>Rol</th>
                         <th>Opcion</th>
                     </thead>
@@ -73,7 +72,6 @@
                     <tr>
                         <td>{{ $usuario->codigo }}</td>
                         <td>{{ $usuario->nombre }}</td>
-                        <td>{{ $usuario->contraseña }}</td>
                         <td>{{ $usuario->fk_rol }}</td>
                         <td><a href="/usuarios/{{ $usuario->codigo }}"/>Eliminar</td>
                     </tr>

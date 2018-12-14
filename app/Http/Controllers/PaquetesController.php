@@ -6,62 +6,70 @@ use Illuminate\Http\Request;
 
 use SisLogUCAB\Paquete;
 
-use SisLogUCAB\Cliente;
-
-use SisLogUCAB\Empleado;
-
 use DB;
 
-class UsuariosController extends Controller
+class PaquetesController extends Controller
 {
 	public function index()
     {
         
-        $usuarios=Usuario::all();
+        $paquetes=Paquete::all();
 
-        return view("usuarios.index", compact("usuarios"));
+        return view("paquetes.index", compact("paquetes"));
 
     }
 
     public function indexDelete()
     {
 
-        $usuarios=Usuario::all();
+        $paquetes=Paquete::all();
 
-        return view("usuarios.delete", compact("usuarios"));
+        return view("paquetes.delete", compact("paquetes"));
 
     }
 
     public function indexUpdate()
     {
 
-        $usuarios=Usuario::all();
+        $paquetes=Paquete::all();
 
-        return view("usuarios.edit", compact("usuarios"));
+        return view("paquetes.edit", compact("paquetes"));
 
     }
 
 
     public function create()
     {
-    	$roles= DB::table('rol')->get();
-        return view("usuarios.create", ["roles"=>$roles]);
+    	$sucursales= DB::table('sucursal')->get();
+        $tipos_productos= DB::table('tipo_producto')->get();
+        $clientes= DB::table('cliente')->get();
+        $destinatarios= DB::table('destinatario')->get();
+        return view("paquetes.create", ["sucursales"=>$sucursales,"tipos_productos"=>$tipos_productos,"clientes"=>$clientes,"destinatarios"=>$destinatarios]);
 
     }
 
     public function store(Request $request)
     {
-        $usuario=new Usuario;
 
-        $usuario->nombre=$request->nombre;
-        $usuario->contraseña=$request->contraseña;
-        $usuario->fk_rol=$request->fk_rol;
+        $paquete=new Paquete;
 
-        $usuario->save();
+        $paquete->fecha_entrega=$request->fecha_entrega;
+        $paquete->peso=$request->peso;
+        $paquete->alto=$request->alto;
+        $paquete->ancho=$request->ancho;
+        $paquete->profundidad=$request->profundidad;
+        $paquete->fk_tipo_producto=$request->fk_tipo_producto;
+        $paquete->fk_cliente=$request->fk_cliente;
+        $paquete->fk_destinatario=$request->fk_destinatario;
+        $paquete->fk_sucursal_origen=$request->fk_sucursal_origen;
+        $paquete->fk_sucursal_destino=$request->fk_sucursal_destino;
+
+        $paquete->save();
         
-        return redirect('usuarios/create');
+        return redirect('envios/create');
 
     }
+}
 /*
     public function show($id)
     {

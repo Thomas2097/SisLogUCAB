@@ -26,6 +26,8 @@
                 <li><a href="/aviones"> Aviones </a></li>
                 <li><a href="/barcos"> Barcos </a></li>
                 <li><a href="/rutas"> Rutas </a></li>
+                <li><a href="/paquetes/create"> Paquetes </a></li>
+                <li><a href="/envios/create"> Envios </a></li>
             </ul>
         </nav>
     </header>

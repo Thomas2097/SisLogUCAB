@@ -86,6 +86,11 @@ Route::get('/rutas/edit/{codigo}', 'RutasController@edit');
 Route::post('rutas/update/{codigo}','RutasController@update');
 Route::get('/rutas/{codigo}','RutasController@destroy');
 //
-Route::get('/paquetes/create');
-Route::get('/envios/create');
+Route::get('/paquetes/create', 'PaquetesController@create');
+Route::get('/paquetes', 'PaquetesController@index');
+Route::post('/paquetes','PaquetesController@store');
+//
+Route::get('/envios/create', 'EnviosController@create');
+Route::get('/envios', 'EnviosController@index');
+Route::post('/envios','EnviosController@store');
 //

@@ -37,7 +37,7 @@ drop table marca;
 drop table cliente;
 drop table usu_acc;
 drop table accion;
-drio table usuario;
+drop table usuario;
 drop table rol;
 drop table destinatario;
 drop table lugar;

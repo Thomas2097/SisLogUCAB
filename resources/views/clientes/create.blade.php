@@ -126,12 +126,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>fk usuario:</td>
-                                    <td>
-                                        <input type="text" name="fk_usuario" />
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2" style="text-align: center">
                                         <input type="submit" name="enviar" value="Enviar" style="padding-left:20px; padding-right: 20px">
                                     </td>

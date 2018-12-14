@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use SisLogUCAB\Cliente;
 
+use SisLogUCAB\Usuario;
+
 use DB;
 
 class ClientesController extends Controller
@@ -59,11 +61,13 @@ class ClientesController extends Controller
         $cliente->edo_civil=$request->edo_civil;
         $cliente->empresa=$request->empresa;
         $cliente->lvip=$request->lvip;
-        $cliente->fk_usuario=$request->fk_usuario;
+        //$cliente->fk_usuario=$request->fk_usuario;
+
+        $usuario= Usuario::Where('nombre',$request->cedula)->first();
+        $cliente->fk_usuario=$usuario->codigo;
 
         $cliente->save();
         return redirect('clientes/create');
-        //return view("clientes.create");
 
     }
 
@@ -77,7 +81,6 @@ class ClientesController extends Controller
         $cliente = Cliente::where('codigo',$codigo)->first();
         $lugares = DB::table('lugar')->where('tipo', '=', 'parroquia')->get();
         return view('clientes.update',["cliente"=>$cliente, "lugares"=>$lugares]);
-        //return view("clientes.edit", ["cliente"=>Cliente::findOrFail($codigo)]);
     }
 
 

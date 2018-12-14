@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use SisLogUCAB\Rol;
 
+use SisLogUCAB\Usuario;
+
+use SisLogUCAB\Cliente;
+
+use SisLogUCAB\Empleado;
+
 use DB;
 
 class RolesController extends Controller
@@ -64,14 +70,16 @@ class RolesController extends Controller
 
     public function edit($codigo)
     {
+
         $rol = Rol::where('codigo',$codigo)->first();
         return view('roles.update',["rol"=>$rol]);
-        //return view("clientes.edit", ["cliente"=>Cliente::findOrFail($codigo)]);
+
     }
 
 
     public function update(Request $request, $codigo)
     {
+
         $nuevoNombre= $request->input('nombre');
         //----------------------------------------------
         $rol = Rol::find($codigo);
@@ -79,15 +87,16 @@ class RolesController extends Controller
         $rol->save();
 
         return redirect('roles/update');
+
     }
 
 
     public function destroy($codigo)
     {
 
-       Rol::destroy($codigo);
+        Rol::destroy($codigo);
 
-       return redirect('roles/delete');
+        return redirect('roles/delete');
 
     }
 }

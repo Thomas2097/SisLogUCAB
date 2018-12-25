@@ -12,54 +12,55 @@ use SisLogUCAB\Empleado;
 
 use DB;
 
-class UsuariosController extends Controller
+class PaquetesController extends Controller
 {
 	public function index()
     {
         
-        $usuarios=Usuario::all();
+        $paquetes=Paquete::all();
 
-        return view("usuarios.index", compact("usuarios"));
+        return view("paquetes.index", compact("paquetes"));
 
     }
 
     public function indexDelete()
     {
 
-        $usuarios=Usuario::all();
+        $paquetes=Paquete::all();
 
-        return view("usuarios.delete", compact("usuarios"));
+        return view("paquetes.delete", compact("paquetes"));
 
     }
 
     public function indexUpdate()
     {
 
-        $usuarios=Usuario::all();
+        $paquetes=Paquete::all();
 
-        return view("usuarios.edit", compact("usuarios"));
+        return view("paquetes.edit", compact("paquetes"));
 
     }
 
 
     public function create()
     {
-    	$roles= DB::table('rol')->get();
-        return view("usuarios.create", ["roles"=>$roles]);
+
+    	$paquetes= DB::table('paquete')->get();
+        return view("paquetes.create", ["paquetes"=>$paquetes]);
 
     }
 
     public function store(Request $request)
     {
-        $usuario=new Usuario;
+        $paquete=new Paquete;
 
-        $usuario->nombre=$request->nombre;
-        $usuario->contraseña=$request->contraseña;
+        $paquete->nombre=$request->nombre;
+        $paquete->contraseña=$request->contraseña;
         $usuario->fk_rol=$request->fk_rol;
 
-        $usuario->save();
+        $paquete->save();
         
-        return redirect('usuarios/create');
+        return redirect('paquetes/create');
 
     }
 /*

@@ -89,3 +89,8 @@ Route::get('/rutas/{codigo}','RutasController@destroy');
 Route::get('/paquetes/create');
 Route::get('/envios/create');
 //
+Route::get('/reporte17','ReportesController@index17');
+Route::get('/reporte18','ReportesController@index18');
+Route::get('/reporte22','ReportesController@index22');
+Route::get('/reporte23','ReportesController@index23');
+Route::get('/reporte24','ReportesController@index24');

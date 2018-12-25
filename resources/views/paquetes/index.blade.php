@@ -47,33 +47,43 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Usuarios</h1>
+                <h1>Paquetes</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/usuarios/create">Crear</a></li>
-                    <li><a href="/usuarios" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/usuarios/update">Modificar</a></li>
-                    <li><a href="/usuarios/delete">Eliminar</a></li>
+                    <li><a href="/paquetes/create">Crear</a></li>
+                    <li><a href="/paquetes" style="background-color: green;">Consultar</a></li>
+                    <!--<li><a href="/usuarios/update">Modificar</a></li>
+                    <li><a href="/usuarios/delete">Eliminar</a></li>-->
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Consultar usuarios</h1>
+                <h1>Consultar paquetes</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
-                        <table id="usuarios" width="80%" cellspacing="0">
+                        <table id="paquetes" width="80%" cellspacing="0">
                             <thead>
                                 <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Rol</th>
+                                <th>Fecha de entrega</th>
+                                <th>Peso</th>
+                                <th>Tipo producto</th>
+                                <th>Cliente</th>
+                                <th>Destinatario</th>
+                                <th>Sucursal de origen</th>
+                                <th>Sucursal de destino</th>
                             </thead>
                             <tbody>
-                                @foreach ($usuarios as $usuario)
+                                @foreach ($paquetes as $paquete)
                                 <tr>
-                                    <td>{{$usuario->codigo}}</td>
-                                    <td>{{$usuario->nombre}}</td>
-                                    <td>{{$usuario->fk_rol}}</td>
+                                    <td>{{$paquete->codigo}}</td>
+                                    <td>{{$paquete->fecha_entrega}}</td>
+                                    <td>{{$paquete->peso}}</td>
+                                    <td>{{$paquete->fk_tipo_producto}}</td>
+                                    <td>{{$paquete->fk_cliente}}</td>
+                                    <td>{{$paquete->fk_destinatario}}</td>
+                                    <td>{{$paquete->fk_sucursal_origen}}</td>
+                                    <td>{{$paquete->fk_sucursal_destino}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -92,7 +102,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#usuarios').DataTable();
+            $('#paquetes').DataTable();
         } );
     </script>
 </body>

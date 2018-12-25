@@ -6,23 +6,19 @@ use Illuminate\Http\Request;
 
 use SisLogUCAB\Envio;
 
-use SisLogUCAB\Cliente;
-
-use SisLogUCAB\Empleado;
-
 use DB;
 
-class UsuariosController extends Controller
+class EnviosController extends Controller
 {
 	public function index()
     {
         
-        $usuarios=Usuario::all();
+        $envios=Envio::all();
 
-        return view("usuarios.index", compact("usuarios"));
+        return view("envios.index", compact("envios"));
 
     }
-
+/*
     public function indexDelete()
     {
 
@@ -40,28 +36,34 @@ class UsuariosController extends Controller
         return view("usuarios.edit", compact("usuarios"));
 
     }
-
+*/
 
     public function create()
     {
-    	$roles= DB::table('rol')->get();
-        return view("usuarios.create", ["roles"=>$roles]);
+    	$paquetes= DB::table('paquete')->get();
+        $rutas= DB::table('ruta')->get();
+        $sucursales = DB::table('sucursal')->get();
+        return view("envios.create", ["paquetes"=>$paquetes,"rutas"=>$rutas,"sucursales"=>$sucursales]);
 
     }
 
     public function store(Request $request)
     {
-        $usuario=new Usuario;
+        $envio=new Envio;
 
-        $usuario->nombre=$request->nombre;
-        $usuario->contraseña=$request->contraseña;
-        $usuario->fk_rol=$request->fk_rol;
+        $envio->fecha_inicio=$request->fecha_inicio;
+        $envio->fecha_entrega=$request->fecha_entrega;
+        $envio->fk_paquete=$request->fk_paquete;
+        $envio->fk_ruta=$request->fk_ruta;
+        $envio->fk_sucursal_origen=$request->fk_sucursal_origen;
+        $envio->fk_sucursal_destino=$request->fk_sucursal_destino;
 
-        $usuario->save();
+        $envio->save();
         
-        return redirect('usuarios/create');
+        return redirect('envios/create');
 
     }
+}
 /*
     public function show($id)
     {

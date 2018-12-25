@@ -45,44 +45,74 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Usuarios</h1>
+                <h1>Envios</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/usuarios/create" style="background-color: green;">Crear</a></li>
-                    <li><a href="/usuarios">Consultar</a></li>
-                    <li><a href="/usuarios/update">Modificar</a></li>
-                    <li><a href="/usuarios/delete">Eliminar</a></li>
+                    <li><a href="/envios/create" style="background-color: green;">Crear</a></li>
+                    <li><a href="/envios">Consultar</a></li>
+                    <!--<li><a href="/usuarios/update">Modificar</a></li>
+                    <li><a href="/usuarios/delete">Eliminar</a></li>-->
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Registrar un Usuario</h1>
+                <h1>Registrar un Envio</h1>
              <!--   <div style="margin-left:16%; margin-top:30px">-->
                     <div id="formulario">
-                        <form action="{{ action('UsuariosController@store') }}" method="post">
+                        <form action="{{ action('EnviosController@store') }}" method="post">
                             {{ csrf_field() }}
                             <table>
                                 <tr>
-                                    <td>Cédula:</td>
+                                    <td>Fecha de inicio:</td>
                                     <td>
-                                        <input type="text" name="nombre" />
+                                    <input type="date" name="fecha_inicio">          
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Rol:</td>
+                                    <td>Fecha de entrega:</td>
                                     <td>
-                                        <select name="fk_rol">
-                                            @foreach ($roles as $rl)
-                                            <option value="{{$rl->codigo}}">{{$rl->nombre}}</option>
+                                    <input type="date" name="fecha_entrega">          
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Paquete:</td>
+                                    <td>
+                                        <select name="fk_paquete">
+                                            @foreach ($paquetes as $paq)
+                                            <option value="{{$paq->codigo}}">{{$paq->codigo}}</option>
                                             @endforeach
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Contraseña:</td>
+                                    <td>Ruta:</td>
                                     <td>
-                                        <input type="text" name="contraseña" />
+                                        <select name="fk_ruta">
+                                            @foreach ($rutas as $rut)
+                                            <option value="{{$rut->codigo}}">{{$rut->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sucursal de origen:</td>
+                                    <td>
+                                        <select name="fk_sucursal_origen">
+                                            @foreach ($sucursales as $suc)
+                                            <option value="{{$suc->codigo}}">{{$suc->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sucursal de destino:</td>
+                                    <td>
+                                        <select name="fk_sucursal_destino">
+                                            @foreach ($sucursales as $suc2)
+                                            <option value="{{$suc2->codigo}}">{{$suc2->nombre}}</option>
+                                            @endforeach
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>

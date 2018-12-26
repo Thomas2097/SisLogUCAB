@@ -40,33 +40,25 @@ class PaquetesController extends Controller
 
     public function create()
     {
-<<<<<<< HEAD
 
-    	$paquetes= DB::table('paquete')->get();
-        return view("paquetes.create", ["paquetes"=>$paquetes]);
-=======
+/*
     	$sucursales= DB::table('sucursal')->get();
         $tipos_productos= DB::table('tipo_producto')->get();
         $clientes= DB::table('cliente')->get();
         $destinatarios= DB::table('destinatario')->get();
+        return view("paquetes.create", ["sucursales"=>$sucursales,"tipos_productos"=>$tipos_productos,"clientes"=>$clientes,"destinatarios"=>$destinatarios]);*/
+
+        $sucursales= DB::table('sucursal')->get();
+        $tipos_productos= DB::table('tipo_producto')->get();
+        $clientes= DB::table('cliente')->get();
+        $destinatarios= DB::table('destinatario')->get();
         return view("paquetes.create", ["sucursales"=>$sucursales,"tipos_productos"=>$tipos_productos,"clientes"=>$clientes,"destinatarios"=>$destinatarios]);
->>>>>>> 4bf7780ef99c7f2ca779d8aca808885f25b54834
+
 
     }
 
     public function store(Request $request)
     {
-<<<<<<< HEAD
-        $paquete=new Paquete;
-
-        $paquete->nombre=$request->nombre;
-        $paquete->contraseña=$request->contraseña;
-        $usuario->fk_rol=$request->fk_rol;
-
-        $paquete->save();
-        
-        return redirect('paquetes/create');
-=======
 
         $paquete=new Paquete;
 
@@ -84,7 +76,6 @@ class PaquetesController extends Controller
         $paquete->save();
         
         return redirect('envios/create');
->>>>>>> 4bf7780ef99c7f2ca779d8aca808885f25b54834
 
     }
 }

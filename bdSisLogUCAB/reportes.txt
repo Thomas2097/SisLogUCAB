@@ -1,0 +1,21 @@
+11) select s.nombre,z.nombre from sucursal s,sucursal z where
+s.codigo=(select mode() within group (order by fk_sucursal_origen)
+from paquete) and z.codigo=(select mode() within group (order by fk_sucursal_destino)
+from paquete)
+
+
+13) select s.nombre,round(avg(p.peso)::numeric,2)
+from paquete p,sucursal s
+group by s.codigo,s.nombre,p.fk_sucursal_origen having(s.codigo=p.fk_sucursal_origen)
+
+
+
+	14)	SELECT mode() within group (order by to_char(fecha_inicio, 'Mon'))
+from envio 
+
+
+   15) select r.nombre,s.nombre,z.nombre
+from ruta r,sucursal s, sucursal z
+where r.codigo = (SELECT mode() within group (order by fk_ruta)
+from envio ) and s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino
+

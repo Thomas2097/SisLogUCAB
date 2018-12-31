@@ -47,43 +47,31 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Empleados</h1>
+                <h1>Envios</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/empleados/create">Crear</a></li>
-                    <li><a href="/empleados" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/empleados/update">Modificar</a></li>
-                    <li><a href="/empleados/delete">Eliminar</a></li>
+                    <li><a href="/envios/create">Crear</a></li>
+                    <li><a href="/envios" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/envios/update">Modificar</a></li>
+                    <li><a href="/envios/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Consultar empleados</h1>
+                <h1>Mes en el que se realizan más envíos</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="empleados" width="80%" cellspacing="0">
                             <thead>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Cédula</th>
-                                <th>Cargo</th>
-                                <th>Usuario</th>
-                                <th>Dirección</th>
-                                <th></th>
+                                <th>Nombre del mes</th>
+                                <th>Cantidad de envíos</th>
                             </thead>
                             <tbody>
-                                @foreach ($empleados as $empleado)
+                                @foreach ($mes as $m)
                                 <tr>
-                                    <td>{{$empleado->codigo}}</td>
-                                    <td>{{$empleado->nombre}}</td>
-                                    <td>{{$empleado->apellido}}</td>
-                                    <td>{{$empleado->cedula}}</td>
-                                    <td>{{$empleado->fk_cargo}}</td>
-                                    <td>{{$empleado->fk_usuario}}</td>
-                                    <td>{{$empleado->fk_lugar}}</td>
-                                    <td><a href="empleados/asistencia/{{$empleado->codigo}}"/>Asistencia</td>
+                                    <td>{{$m->nombre}}</td>
+                                    <td></td>
                                 </tr>
                                 @endforeach
                             </tbody>

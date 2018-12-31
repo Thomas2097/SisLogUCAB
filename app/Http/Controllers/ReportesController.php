@@ -8,6 +8,51 @@ use DB;
 
 class ReportesController extends Controller
 {
+
+	public function index11()
+	{
+
+		$a = DB::select(DB::raw("SELECT s.nombre as nom_env,z.nombre as nom_rec from sucursal s,sucursal z where
+		s.codigo=(select mode() within group (order by fk_sucursal_origen)
+		FROM paquete) and z.codigo=(select mode() within group (order by fk_sucursal_destino)
+		FROM paquete);"));
+
+		return view("reportes.indexReporte11", compact('a'));
+
+	}
+
+	public function index13()
+	{
+
+		$suc = DB::select(DB::raw("SELECT s.nombre as nombre,round(avg(p.peso)::numeric,2) as prom
+		from paquete p,sucursal s
+		group by s.codigo,s.nombre,p.fk_sucursal_origen having(s.codigo=p.fk_sucursal_origen);"));
+
+		return view("reportes.indexReporte13", compact('suc'));
+
+	}
+
+	public function index14()
+	{
+
+		$mes = DB::select(DB::raw("SELECT mode() within group (order by to_char(fecha_inicio, 'Mon')) as nombre from envio;"));
+
+		return view("reportes.indexReporte14", compact('mes'));
+
+	}
+
+	public function index15()
+	{
+
+		$ruta = DB::select(DB::raw("SELECT r.nombre as nombre,s.nombre as nombres1,z.nombre as nombres2
+		from ruta r,sucursal s, sucursal z
+		where r.codigo = (SELECT mode() within group (order by fk_ruta)
+		from envio ) and s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino;"));
+
+		return view("reportes.indexReporte15", compact('ruta'));
+
+	}
+
 	public function index17()
 	{ //Reporte: listado de empleados con las inasistencias
 

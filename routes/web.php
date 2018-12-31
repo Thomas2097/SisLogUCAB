@@ -3,7 +3,7 @@
 Route::get('/', function () {
 
     return view('inicio');
-});
+})->middleware('auth.basic');
 
 Route::get('/clientes/create','ClientesController@create');
 Route::get('/clientes','ClientesController@index');
@@ -71,11 +71,14 @@ Route::get('/usuarios/{codigo}','UsuariosController@destroy');
 Route::get('/empleados/create','EmpleadosController@create');
 Route::get('/empleados','EmpleadosController@index');
 Route::post('/empleados','EmpleadosController@store');
+Route::get('/pre-indexEmp','EmpleadosController@preIndex');
 Route::get('/empleados/delete','EmpleadosController@indexDelete');
 Route::get('/empleados/update','EmpleadosController@indexUpdate');
 Route::get('/empleados/edit/{codigo}', 'EmpleadosController@edit');
 Route::post('empleados/update/{codigo}','EmpleadosController@update');
 Route::get('/empleados/{codigo}','EmpleadosController@destroy');
+Route::get('/empleados/asistencia/{codigo}','EmpleadosController@asistencia');
+Route::post('/empleados/asiste','EmpleadosController@storeasist');
 //
 Route::get('/rutas/create','RutasController@create');
 Route::get('/rutas','RutasController@index');
@@ -94,6 +97,10 @@ Route::get('/envios/create', 'EnviosController@create');
 Route::get('/envios', 'EnviosController@index');
 Route::post('/envios','EnviosController@store');
 //
+Route::get('/reporte11','ReportesController@index11');
+Route::get('/reporte13','ReportesController@index13');
+Route::get('/reporte14','ReportesController@index14');
+Route::get('/reporte15','ReportesController@index15');
 Route::get('/reporte17','ReportesController@index17');
 Route::get('/reporte18','ReportesController@index18');
 Route::get('/reporte22','ReportesController@index22');

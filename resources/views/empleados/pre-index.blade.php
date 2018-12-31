@@ -8,7 +8,6 @@
     </style>
     <link href="css/stylex.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 
 
 </head>
@@ -59,36 +58,14 @@
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Consultar empleados</h1>
+                <h1>Seleccione una opción para consultar</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
-                        <table id="empleados" width="80%" cellspacing="0">
-                            <thead>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Cédula</th>
-                                <th>Cargo</th>
-                                <th>Usuario</th>
-                                <th>Dirección</th>
-                                <th></th>
-                            </thead>
-                            <tbody>
-                                @foreach ($empleados as $empleado)
-                                <tr>
-                                    <td>{{$empleado->codigo}}</td>
-                                    <td>{{$empleado->nombre}}</td>
-                                    <td>{{$empleado->apellido}}</td>
-                                    <td>{{$empleado->cedula}}</td>
-                                    <td>{{$empleado->fk_cargo}}</td>
-                                    <td>{{$empleado->fk_usuario}}</td>
-                                    <td>{{$empleado->fk_lugar}}</td>
-                                    <td><a href="empleados/asistencia/{{$empleado->codigo}}"/>Asistencia</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
+                        <table>
+                        <tr><h4 style="text-align: center;"><a href="/empleados">Listado de todos los empleados</a></h4></tr>
+                        <tr><h4 style="text-align: center;"><a href="/reporte17">Listado de empleados con las inasistencias</a></h4></tr>
+                        <tr><h4 style="text-align: center;"><a href="/reporte18">Listado de inasistencia indicando el horario asignado al empleado</a></h4></tr>
                         </table>
-
                     </div>
 
  <!--               </div>-->
@@ -98,13 +75,6 @@
             <p>SisLogUCAB - 2018-2019</p>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready( function () {
-            $('#empleados').DataTable();
-        } );
-    </script>
 </body>
 
 </html>

@@ -13,6 +13,13 @@ use DB;
 class EmpleadosController extends Controller
 {
 
+    public function preIndex()
+    {
+
+        return view("empleados.pre-index");
+
+    }
+
     public function index()
     {
         
@@ -90,6 +97,28 @@ class EmpleadosController extends Controller
         $lugares = DB::table('lugar')->where('tipo', '=', 'parroquia')->get();
         $cargos = DB::table('cargo')->get();
         return view('empleados.update',["empleado"=>$empleado, "lugares"=>$lugares, "cargos"=>$cargos]);
+
+    }
+
+    public function asistencia($codigo)
+    {
+
+        $hor_emp = DB::select('select codigo from hor_emp where fk_empleado = ? ',[$codigo]);
+
+        return view('empleados.createasist',["hor_emp"=>$hor_emp]);
+
+    }
+
+    public function storeasist(Request $request)
+    {
+
+        $asistio = $request->input('asistio');
+        $fecha_trabajada = $request->input('fecha_trabajada');
+        $fk_hor_emp = $request->input('fk_hor_emp');
+
+        DB::insert('Insert into asistencia (asistio, fecha_trabajada, fk_hor_emp) values (?,?,?)',[$asistio, $fecha_trabajada,$fk_hor_emp]);
+
+        return redirect('/empleados');
 
     }
 

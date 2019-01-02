@@ -1,3 +1,11 @@
+5)update pago set monto_total = (monto_total-monto_total*0.1) where fk_cliente in
+(select codigo from cliente where lvip='si')
+
+10)select distinct c.codigo,c.nombre||' '||c.apellido as nombre,c.cedula,s.codigo||'-'||c.cedula||'-'||c.codigo as codigo_carnet
+from cliente c,sucursal s,paquete p
+where lvip='si' and p.fk_cliente = c.codigo and p.fk_sucursal_origen = s.codigo
+order by c.codigo ******HAY QUE ARREGLAR 
+
 11) select s.nombre,z.nombre from sucursal s,sucursal z where
 s.codigo=(select mode() within group (order by fk_sucursal_origen)
 from paquete) and z.codigo=(select mode() within group (order by fk_sucursal_destino)
@@ -7,15 +15,32 @@ from paquete)
 13) select s.nombre,round(avg(p.peso)::numeric,2)
 from paquete p,sucursal s
 group by s.codigo,s.nombre,p.fk_sucursal_origen having(s.codigo=p.fk_sucursal_origen)
+order by p.fk_sucursal_origen
 
 
-
-	14)	SELECT mode() within group (order by to_char(fecha_inicio, 'Mon'))
+	14)	SELECT mode() within group (order by to_char(fecha_inicio, 'Month'))
 from envio 
-
 
    15) select r.nombre,s.nombre,z.nombre
 from ruta r,sucursal s, sucursal z
 where r.codigo = (SELECT mode() within group (order by fk_ruta)
 from envio ) and s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino
 
+
+   19)select p.codigo as paquete,e.nombre as estado_paquete,ep.fecha_cambio
+from paquete p,estado_paquete e, est_paq ep
+where ep.fk_paquete = p.codigo and 
+ep.fk_Estado_paquete = e.codigo
+order by p.codigo
+ 
+ 20)select u.nombre,a.fecha_accion,p.nombre as privilegio
+from usuario u,accion a,usu_acc ua,privilegio p,acc_pri ap
+where ua.fk_usuario=u.codigo and ua.fk_accion=a.codigo
+and ap.fk_accion=a.codigo and ap.fk_privilegio = p. codigo
+
+ 
+
+24)	select sum(r.costo), s.nombre,to_char(r.fecha_entrada, 'Month-yy')
+		from aut_tal r, sucursal s, automovil a,taller t
+		where s.codigo = a.fk_sucursal and r.fk_automovil = a.codigo and r.fk_taller = t.codigo
+		group by s.nombre,to_char(r.fecha_entrada, 'Month-yy');

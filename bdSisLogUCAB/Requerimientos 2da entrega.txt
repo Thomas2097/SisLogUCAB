@@ -16,14 +16,9 @@
 16)Recibo de pago de nómina. 
 17)Listado de empleados con las inasistencias. LISTO (/reporte17)
 18)Listado de inasistencia indicando el horario asignado al empleado. LISTO (/reporte18) 
-10)Listado de paquetes con todos los cambios de estatus indicando las fechas de cambio. 
+19)Listado de paquetes con todos los cambios de estatus indicando las fechas de cambio. 
 20)Auditoria del sistema por fecha. 
 21)Promedio de estancia de los paquetes por cada zona de las oficinas. 
 22)Sucursales de puertos y aeropuertos. LISTO (/reporte18)
 23)Histórico de revisión de la flota indicando taller, falla y duración de la revisión. LISTO (/reporte23)
 24)Total de gastos generados por revisión de flotas por mes y por sucursal. Falta que sea por mes y no el total (/reporte24)
-	Ésto es lo que se tiene del reporte 24:
-		select sum(r.costo), s.nombre
-		from aut_tal r, sucursal s, automovil a
-		where s.codigo = a.fk_sucursal and r.fk_automovil = a.codigo
-		group by s.nombre;

@@ -22,6 +22,11 @@ s.codigo=(select mode() within group (order by fk_sucursal_origen)
 from paquete) and z.codigo=(select mode() within group (order by fk_sucursal_destino)
 from paquete)
 
+12)select suc.nombre,sum(ss.costo)as egresos, sum(p.monto_total) as ingresos
+from ser_suc ss, servicio s,sucursal suc,pago p, paquete paq
+where ss.fk_servicio = s.codigo and ss.fk_sucursal = suc.codigo
+and p.fk_paquete = paq.codigo and paq.fk_sucursal_origen = suc.codigo
+group by suc.nombre
 
 13) select s.nombre,round(avg(p.peso)::numeric,2)
 from paquete p,sucursal s
@@ -46,10 +51,10 @@ where ep.fk_paquete = p.codigo and
 ep.fk_Estado_paquete = e.codigo
 order by p.codigo
  
- 20)select u.nombre,a.fecha_accion,p.nombre as privilegio
-from usuario u,accion a,usu_acc ua,privilegio p,acc_pri ap
+ 20)select u.nombre as usuario,a.fecha_accion as fecha_accion,p.nombre as privilegio,r.nombre as rol
+from usuario u,accion a,usu_acc ua,privilegio p,acc_pri ap,rol r
 where ua.fk_usuario=u.codigo and ua.fk_accion=a.codigo
-and ap.fk_accion=a.codigo and ap.fk_privilegio = p. codigo
+and ap.fk_accion=a.codigo and ap.fk_privilegio = p. codigo and u.fk_rol=r.codigo
 
 
 24)	select sum(r.costo), s.nombre,to_char(r.fecha_entrada, 'Month-yy') as fecha

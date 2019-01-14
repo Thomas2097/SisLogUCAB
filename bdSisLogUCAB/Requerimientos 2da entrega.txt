@@ -22,8 +22,8 @@
 22)Sucursales de puertos y aeropuertos. LISTO (/reporte18)
 23)Histórico de revisión de la flota indicando taller, falla y duración de la revisión. LISTO (/reporte23)
 24)Total de gastos generados por revisión de flotas por mes y por sucursal. Falta que sea por mes y no el total (/reporte24)Listado de Oficinas por Estado ordenadas alfabéticamente.
+
 25)Listado de Oficinas por Estado ordenadas alfabéticamente.
-25) Listado de medios de transportes, agrupados por tipo.
 26)Lista de empleados activos, indicando su información básica, cargo que
 ocupa y fecha de ingreso a la compañía.
 27)Listado de todos los empleados (activos o no) indicando su información
@@ -74,3 +74,4 @@ reporte debe mostrar el total los cálculos.
 57)Contabilidad: Indicar ingresos y egresos por oficina. Por periodo de tiempo.
 58)Oficinas más costosas por estado y país.
 59)Listado de servicios por oficina.
+60)Listado de medios de transportes, agrupados por tipo.

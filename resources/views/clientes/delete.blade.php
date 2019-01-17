@@ -48,7 +48,7 @@
                 <h1>Clientes</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/clientes/create"">Crear</a></li>
-                    <li><a href="/clientes">Consultar</a></li>
+                    <li><a href="/pre-indexCli">Consultar</a></li>
                     <li><a href="/clientes/update">Modificar</a></li>
                     <li><a href="/clientes/delete"  style="background-color: green;">Eliminar</a></li>
                 </ul>

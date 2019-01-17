@@ -75,7 +75,7 @@
                         <td>{{ $empleado->nombre }}</td>
                         <td>{{ $empleado->apellido }}</td>
                         <td>{{ $empleado->cedula }}</td>
-                        <td><a href="/empleados/{{ $empleados->codigo }}"/>Eliminar</td>
+                        <td><a href="/empleados/{{ $empleado->codigo }}"/>Eliminar</td>
                     </tr>
                     @endforeach
                 </table>

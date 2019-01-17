@@ -57,7 +57,7 @@
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Registrar un Empleado</h1>
+                <h1>Registrar asistencia</h1>
              <!--   <div style="margin-left:16%; margin-top:30px">-->
                     <div id="formulario">
                         <form action="{{ action('EmpleadosController@storeasist') }}" method="post">
@@ -76,7 +76,7 @@
                                         <input type="radio" name="asistio" value="no">No
                                     </td>
                                </tr>
-                               <tr>
+                               <tr style="display:none;">
                                     <td>hor_emp:</td>
                                     <td>
                                         <select name="fk_hor_emp">

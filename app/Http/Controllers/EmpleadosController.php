@@ -114,7 +114,7 @@ class EmpleadosController extends Controller
 
         $asistio = $request->input('asistio');
         $fecha_trabajada = $request->input('fecha_trabajada');
-        $fk_hor_emp = $request->input('fk_hor_emp');
+        $fk_hor_emp = $request->input("fk_hor_emp");
 
         DB::insert('Insert into asistencia (asistio, fecha_trabajada, fk_hor_emp) values (?,?,?)',[$asistio, $fecha_trabajada,$fk_hor_emp]);
 

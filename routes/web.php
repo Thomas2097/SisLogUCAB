@@ -5,14 +5,18 @@ Route::get('/', function () {
     return view('inicio');
 })->middleware('auth.basic');
 
+
 Route::get('/clientes/create','ClientesController@create');
 Route::get('/clientes','ClientesController@index');
 Route::post('/clientes','ClientesController@store');
+Route::get('/pre-indexCli','ClientesController@preIndex');
 Route::get('/clientes/delete','ClientesController@indexDelete');
 Route::get('/clientes/update','ClientesController@indexUpdate');
 Route::get('/clientes/edit/{codigo}', 'ClientesController@edit');
 Route::post('clientes/update/{codigo}','ClientesController@update');
 Route::get('/clientes/{codigo}','ClientesController@destroy');
+Route::get('/carnet','ClientesController@carnet');
+Route::get('/generarCarnet/{codigo}','ClientesController@generarCarnet');
 //
 Route::get('/roles/create','RolesController@create');
 Route::get('/roles','RolesController@index');

@@ -13,6 +13,13 @@ use DB;
 class ClientesController extends Controller
 {
 
+    public function preIndex()
+    {
+
+        return view("clientes.pre-index");
+
+    }
+
     public function index()
     {
         
@@ -116,6 +123,37 @@ class ClientesController extends Controller
        Cliente::destroy($codigo);
 
        return redirect('clientes/delete');
+
+    }
+
+    public function carnet()
+    {
+
+        $vip = DB::select(DB::raw("SELECT distinct c.codigo as codigo,
+        c.nombre||' '||c.apellido as nombre,c.cedula as cedula, lvip as lvip,
+        MIN(s.codigo||'-'||c.cedula||'-'||c.codigo) as codigo_carnet
+        from cliente c,sucursal s,paquete p
+        where lvip='si' and p.fk_cliente = c.codigo and p.fk_sucursal_origen = s.codigo
+        group by c.codigo
+        order by c.codigo"));
+
+        return view("clientes.vip", compact('vip'));
+
+    }
+
+    public function generarCarnet($codigo)
+    {
+
+        $vip = DB::select(DB::raw("SELECT distinct c.codigo as codigo,
+        c.nombre||' '||c.apellido as nombre,c.cedula as cedula, lvip as lvip,
+        MIN(s.codigo||'-'||c.cedula||'-'||c.codigo) as codigo_carnet
+        from cliente c,sucursal s,paquete p
+        where c.codigo = ? and lvip='si' and p.fk_cliente = c.codigo and p.fk_sucursal_origen = s.codigo
+        group by c.codigo
+        order by c.codigo"),[$codigo]);
+
+        return view("clientes.carnet", ["vip"=>$vip]);
+
 
     }
 }

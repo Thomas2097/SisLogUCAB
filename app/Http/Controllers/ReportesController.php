@@ -310,13 +310,16 @@ class ReportesController extends Controller
     public function index49()
     {
 
-    	$suc = DB::select(DB::raw("SELECT max(s.capacidad_m2) as ma,estado.nombre as est					
-			from sucursal s,lugar l, lugar estado
-			where s.fk_lugar = l.codigo and l.fk_lugar =estado.codigo
-			group by estado.nombre
-			order by estado.nombre,ma"));
+    	$suc = DB::select (DB::raw("SELECT s.nombre as sucu,max(s.capacidad_m2) as ma,estado.nombre as est
+from sucursal s,lugar l, lugar estado
+where s.fk_lugar = l.codigo and l.fk_lugar =estado.codigo
+group by s.nombre,s.capacidad_m2,estado.nombre
+having (s.capacidad_m2 in
+   (select  max(s.capacidad_m2) from sucursal s,lugar l, lugar estado
+where s.fk_lugar = l.codigo and l.fk_lugar =estado.codigo group by estado.nombre))
+order by estado.nombre, ma"));
 
-    	return view("reportes.indexReporte49", compact('emp'));
+    	return view("reportes.indexReporte49", compact('suc'));
 
     }
 

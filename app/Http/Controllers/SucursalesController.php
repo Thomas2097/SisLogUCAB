@@ -20,6 +20,13 @@ class SucursalesController extends Controller
 
     }
 
+    public function preindex()
+    {
+
+        return view("sucursales.preindex");
+
+    }
+
     public function indexDelete()
     {
 

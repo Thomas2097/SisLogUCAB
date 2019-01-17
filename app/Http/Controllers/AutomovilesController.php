@@ -20,6 +20,13 @@ class AutomovilesController extends Controller
 
     }
 
+    public function preindex()
+    {
+
+        return view('automoviles.pre-index');
+
+    }
+
     public function indexDelete()
     {
 

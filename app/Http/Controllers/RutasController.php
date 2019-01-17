@@ -21,6 +21,13 @@ class RutasController extends Controller
 
     }
 
+    public function preindex()
+    {
+
+        return view("rutas.preindex");
+
+    }
+
     public function indexDelete()
     {
 

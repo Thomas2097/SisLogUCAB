@@ -50,7 +50,7 @@
                 <h1>Sucursales</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/sucursales/create">Crear</a></li>
-                    <li><a href="/sucursales" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/pre-indexSuc" style="background-color: green;">Consultar</a></li>
                     <li><a href="/sucursales/update">Modificar</a></li>
                     <li><a href="/sucursales/delete">Eliminar</a></li>
                 </ul>

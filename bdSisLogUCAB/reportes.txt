@@ -19,3 +19,17 @@ from ruta r,sucursal s, sucursal z
 where r.codigo = (SELECT mode() within group (order by fk_ruta)
 from envio ) and s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino
 
+18)select pa.codigo as Codigo_Paquete, e.nombre as Estado, ep.fecha_cambio
+from estado_paquete e, paquete pa, est_paq ep
+where pa.codigo = ep.fk_paquete and e.codigo = ep.fk_estado_paquete
+order by codigo_paquete;
+
+
+
+segundos reportes:
+21) SELECT s.nombre as nombreSucursal,e.codigo as codigo, e.nombre as nombreEmp, h.dia, h.hora_ent as Entrada, h.hora_sal as Salida, z.nombre as NombreZona, z.descripcion as descripcionZona
+from empleado e, horario h, zona z, hor_emp he, zon_emp ze, sucursal s
+where
+e.codigo = he.fk_empleado and h.codigo = he.fk_horario and e.codigo = ze.fk_empleado and z.codigo = ze.fk_zona and s.codigo = z.fk_sucursal
+order by s.codigo, e.codigo, h.codigo;
+

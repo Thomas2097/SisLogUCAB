@@ -48,7 +48,7 @@
                 <h1>Rutas</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/rutas/create" style="background-color: green;">Crear</a></li>
-                    <li><a href="/rutas">Consultar</a></li>
+                    <li><a href="/pre-indexRut">Consultar</a></li>
                     <li><a href="/rutas/update">Modificar</a></li>
                     <li><a href="/rutas/delete">Eliminar</a></li>
                 </ul>

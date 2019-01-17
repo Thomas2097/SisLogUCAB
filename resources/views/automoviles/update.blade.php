@@ -48,7 +48,7 @@
                 <h1>Automoviles</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/automoviles/create">Crear</a></li>
-                    <li><a href="/automoviles" >Consultar</a></li>
+                    <li><a href="/pre-indexAut" >Consultar</a></li>
                     <li><a href="/automoviles/update"style="background-color: green;">Modificar</a></li>
                     <li><a href="/automoviles/delete">Eliminar</a></li>
                 </ul>

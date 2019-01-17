@@ -6,9 +6,10 @@
     <title>SisLogUCAB</title>
     <style type="text/css">
     </style>
-    <link href="{{ asset('css/stylex.css') }}"; rel="stylesheet" type="text/css"/>
+    <link href="css/stylex.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+
+
 </head>
 
 <body>
@@ -33,8 +34,8 @@
             <div id="top">
                 <ul>
 
-                    <li><a href="#cuenta">Cuenta</a></li>
-                    <li><a href="#nosotros">Sobre nosotros</a></li>
+                    <li><a href="Cuenta.html">Cuenta</a></li>
+                    <li><a href="Nosotros.html">Sobre nosotros</a></li>
                     <li><a href="SisLogUCAB.html">Inicio</a></li>
 
 
@@ -45,11 +46,11 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Clientes</h1>
+                <h1>Sucursales</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/sucursales/create"">Crear</a></li>
-                    <li><a href="/pre-indexSuc">Consultar</a></li>
-                    <li><a href="/sucursales/update"style="background-color: green;">Modificar</a></li>
+                    <li><a href="/sucursales/create">Crear</a></li>
+                    <li><a href="/pre-indexSuc" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/sucursales/update">Modificar</a></li>
                     <li><a href="/sucursales/delete">Eliminar</a></li>
                 </ul>
             </div>
@@ -57,43 +58,22 @@
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Editar una Sucursal</h1>
-                
-                <div>
-                <table id="sucursales" width="80%" cellspacing="0">
-                    <thead>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Capacidad (m2)</th>
-                        <th>Opcion</th>
-                    </thead>
+                <h1>Seleccione una opción para consultar</h1>
+ <!--               <div style="margin-left:16%; margin-top:30px">-->
+                    <div>
+                        <table>
+                        <tr><h4 style="text-align: center;"><a href="/sucursales">Listado de todas las sucursales</a></h4></tr>
+                        <tr><h4 style="text-align: center;"><a href="/reporte22">Sucursales de puertos y aeropuertos</a></h4></tr>
+                        </table>
+                    </div>
 
-                    @foreach ($sucursales as $sucursal)
-                    <tr>
-                        <td>{{ $sucursal->codigo }}</td>
-                        <td>{{ $sucursal->nombre }}</td>
-                        <td>{{ $sucursal->correo }}</td>
-                        <td>{{ $sucursal->capacidad_m2 }}</td>
-                        <td><a href="/sucursales/edit/{{ $sucursal->codigo }}" />Modificar</td>
-                    </tr>
-                    @endforeach
-                </table>
-                </div>
-
+ <!--               </div>-->
             </div>
         </div>
         <div id="pie">
             <p>SisLogUCAB - 2018-2019</p>
         </div>
     </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready( function () {
-            $('#sucursales').DataTable();
-        } );
-    </script>
 </body>
 
 </html>

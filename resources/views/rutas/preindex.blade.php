@@ -8,7 +8,6 @@
     </style>
     <link href="css/stylex.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 
 
 </head>
@@ -59,32 +58,13 @@
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Consultar rutas</h1>
+                <h1>Seleccione una opción para consultar</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
-                        <table id="rutas" width="80%" cellspacing="0">
-                            <thead>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Tipo</th>
-                                <th>Costo</th>
-                                <th>Sucursal de origen</th>
-                                <th>Sucursal de destino</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($rutas as $ruta)
-                                <tr>
-                                    <td>{{$ruta->codigo}}</td>
-                                    <td>{{$ruta->nombre}}</td>
-                                    <td>{{$ruta->tipo}}</td>
-                                    <td>{{$ruta->costo}}</td>
-                                    <td>{{$ruta->fk_sucursal_origen}}</td>
-                                    <td>{{$ruta->fk_sucursal_destino}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
+                        <table>
+                        <tr><h4 style="text-align: center;"><a href="/rutas">Listado de todas las rutas</a></h4></tr>
+                        <tr><h4 style="text-align: center;"><a href="/reporte15">Ruta más utilizada</a></h4></tr>
                         </table>
-
                     </div>
 
  <!--               </div>-->
@@ -94,13 +74,6 @@
             <p>SisLogUCAB - 2018-2019</p>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready( function () {
-            $('#rutas').DataTable();
-        } );
-    </script>
 </body>
 
 </html>

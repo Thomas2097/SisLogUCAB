@@ -48,7 +48,7 @@
                 <h1>Empleados</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/empleados/create"">Crear</a></li>
-                    <li><a href="/empleados">Consultar</a></li>
+                    <li><a href="/pre-indexEmp">Consultar</a></li>
                     <li><a href="/empleados/update">Modificar</a></li>
                     <li><a href="/empleados/delete"  style="background-color: green;">Eliminar</a></li>
                 </ul>

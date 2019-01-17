@@ -47,10 +47,10 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Automoviles</h1>
+                <h1>Automóviles</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
                     <li><a href="/automoviles/create">Crear</a></li>
-                    <li><a href="/automoviles" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/pre-indexAut" style="background-color: green;">Consultar</a></li>
                     <li><a href="/automoviles/update">Modificar</a></li>
                     <li><a href="/automoviles/delete">Eliminar</a></li>
                 </ul>

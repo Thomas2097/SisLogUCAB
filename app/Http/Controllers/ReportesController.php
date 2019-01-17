@@ -333,6 +333,20 @@ order by estado.nombre, ma"));
     	return view("reportes.indexReporte50", compact('usu'));
 
     }
+    
+    public function index54()
+    {
+
+    	$var = DB::select(DB::raw("SELECT (c.salario*count(a.asistio)) as costo, e.nombre || ' ' || e.apellido as nom, e.cedula as ced, c.nombre as cargo, e.codigo as cod, s.nombre as sucursal
+			from cargo c, empleado e, asistencia a, hor_emp he, sucursal s, zon_emp ze, zona z
+			where e.fk_cargo = c.codigo and e.codigo = he.fk_empleado and he.codigo = a.fk_hor_emp and a.asistio = 'si'
+			and e.codigo = ze.fk_empleado and z.codigo = ze.fk_zona and s.codigo = z.fk_sucursal
+			group by nom, e.cedula, c.salario, c.nombre, e.codigo, s.nombre
+			order by e.codigo;"));
+
+    	return view("reportes.indexReporte54", compact('var'));
+
+    }
 
     public function index56()
     {

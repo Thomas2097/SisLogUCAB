@@ -67,10 +67,14 @@ ordenando el listado por oficina y por empleado. LISTO (/reporte44)
 oficina.
 53)Listado de nomina semanal por oficina.
 54)Costo de cada empleado por oficina en un periodo de tiempo. Al final del
-reporte debe mostrar el total los cálculos.
+reporte debe mostrar el total los cálculos. mas o menos LISTO (/reporte54)
 55)Listado de talleres por zona.
 56)Listado de flota con su última fecha de revisión y próxima fecha por oficina. LISTO (/reporte56)
 57)Contabilidad: Indicar ingresos y egresos por oficina. Por periodo de tiempo.
 58)Oficinas más costosas por estado y país.
 59)Listado de servicios por oficina. LISTO (/reporte59)
 60)Listado de medios de transportes, agrupados por tipo. LISTO (/reporte60)
+
+
+No borren esto:
+SET datestyle TO "ISO, DMY";

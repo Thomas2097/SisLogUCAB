@@ -1,4 +1,4 @@
-INSERT into lugar(nombre,tipo,fk_lugar)values
+﻿INSERT into lugar(nombre,tipo,fk_lugar)values
 ('Amazonas','estado',null),
 ('Anzoátegui','estado',null),
 ('Apure','estado',null),
@@ -42310,6 +42310,13 @@ insert into env_tip (fecha_cambio, fk_envio, fk_tipo_Envio) values
 ('11/16/2018', 52, 3),
 ('10/19/2018', 44, 3);
 
+insert into emp_suc(fecha_pago, fk_empleado, fk_sucursal) values
+('30/11/2018', 1, 1),
+('30/11/2018', 2, 1),
+('30/11/2018', 3, 2),
+('30/11/2018', 4, 2),
+('30/11/2018', 5, 3),
+('30/11/2018', 6, 3);
 
 
 

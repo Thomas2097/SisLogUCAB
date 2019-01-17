@@ -6,39 +6,37 @@
     <title>SisLogUCAB</title>
     <style type="text/css">
     </style>
-    <link href="css/stylex.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="{{ asset('css/carnet.css') }}" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
 
 </head>
-
 <body>
-                    <div>
-                        <table width="25%" cellspacing="0">
-                            <tbody>
-                                @foreach ($vip as $v)
-                                <tr>
-                                	<td>Código del carnet:</td>
-                                	<td>{{$v->codigo_carnet}}</td>
-                                </tr>
-                                <tr>
-                                	<td>Código del propietario</td>
-                                    <td>{{$v->codigo}}</td>
-                                </tr>
-                                <tr>
-                                	<td>Nombre del propietario: </td>
-                                	<td>{{$v->nombre}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Cédula del propietario</td>
-                                    <td>{{$v->cedula}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+ @foreach ($vip as $v)
+  <div class="card back">
 
-                    </div>
+  <div class="yellow"><h2>SISLOG UCAB/L-VIP</h2></div>
+
+  <div class="top dots"></div>
+
+  <div class="personal-info">
+    <p>{{$v->nombre}}</p>
+    <p>CI:{{$v->cedula}}</p>
+    <p>ID Carnet:{{$v->codigo_carnet}}</p>
+    <p></p>
+    <p>Codigo Personal:{{$v->codigo}}</p>
+  </div>
+  <div class="bottom dots"></div>
+  <div class="pink"></div>
+</div>
+  @endforeach
+  
+
+
+
+
 
 </body>
 

@@ -69,6 +69,12 @@ and z.fk_sucursal = s.codigo
 and her.fk_empleado = e.codigo and her.fk_horario = h.codigo
 order by s.codigo,e.codigo
 
+45)select p.codigo as codigo_paquete,tp.nombre as tipo_producto,s.nombre as nombre_sucursal
+from paquete p,tipo_producto tp,sucursal s
+where p.fk_sucursal_origen = s.codigo and p.fk_tipo_producto = tp.codigo 
+group by s.nombre,p.codigo,tp.nombre,s.codigo
+order by s.codigo,p.codigo
+
 49)SELECT max(s.capacidad_m2) as ma,estado.nombre					
 from sucursal s,lugar l, lugar estado
 where s.fk_lugar = l.codigo and l.fk_lugar =estado.codigo

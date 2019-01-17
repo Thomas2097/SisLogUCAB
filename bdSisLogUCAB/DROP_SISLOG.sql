@@ -1,3 +1,4 @@
+drop table emp_suc;
 drop table env_tip;
 drop table acc_pri;
 drop table privilegio;

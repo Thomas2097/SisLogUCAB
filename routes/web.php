@@ -110,6 +110,8 @@ Route::get('/reporte14','ReportesController@index14');
 Route::get('/reporte15','ReportesController@index15');
 Route::get('/reporte17','ReportesController@index17');
 Route::get('/reporte18','ReportesController@index18');
+Route::get('/reporte19','ReportesController@index19');
+Route::get('/reporte20','ReportesController@index20');
 Route::get('/reporte22','ReportesController@index22');
 Route::get('/reporte23','ReportesController@index23');
 Route::get('/reporte24','ReportesController@index24');

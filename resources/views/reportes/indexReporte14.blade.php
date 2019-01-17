@@ -70,8 +70,8 @@
                             <tbody>
                                 @foreach ($mes as $m)
                                 <tr>
-                                    <td>{{$m->nombre}}</td>
-                                    <td></td>
+                                    <td>{{$m->mes}}</td>
+                                    <td>{{$m->envios}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

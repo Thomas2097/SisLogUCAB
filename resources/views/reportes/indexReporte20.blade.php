@@ -47,35 +47,35 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Sucursales</h1>
+                <h1>Automoviles</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/sucursales/create">Crear</a></li>
-                    <li><a href="/sucursales" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/sucursales/update">Modificar</a></li>
-                    <li><a href="/sucursales/delete">Eliminar</a></li>
+                    <li><a href="/automoviles/create">Crear</a></li>
+                    <li><a href="/automoviles" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/automoviles/update">Modificar</a></li>
+                    <li><a href="/automoviles/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Detalle de las sucursales que más envían y reciben paquetes</h1>
+                <h1>Auditoría del sistema por fecha</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
-                        <table id="empleados" width="80%" cellspacing="0">
+                        <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Sucursal que envía más paquetes</th>
-                                <th>Total de paquetes enviados</th>
-                                <th>Sucursal que recibe más paquetes</th>
-                                <th>Total de paquetes recibidos</th>
+                                <th>Nombre del usuario</th>
+                                <th>Fecha de la acción</th>  
+                                <th>Acción</th>  
+                                <th>Rol</th>                      
                             </thead>
                             <tbody>
-                                @foreach ($a as $as)
+                                @foreach ($acc as $a)
                                 <tr>
-                                    <td>{{$as->nom_env}}</td>
-                                    <td>{{$as->paq_enviados}}</td>
-                                    <td>{{$as->nom_rec}}</td>
-                                    <td>{{$as->paq_recibidos}}</td>
+                                    <td>{{$a->usuario}}</td>
+                                    <td>{{$a->fecha_accion}}</td>
+                                    <td>{{$a->privilegio}}</td>
+                                    <td>{{$a->rol}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -94,7 +94,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#empleados').DataTable();
+            $('#automoviles').DataTable();
         } );
     </script>
 </body>

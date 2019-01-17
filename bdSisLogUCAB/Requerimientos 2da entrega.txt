@@ -8,20 +8,20 @@
 8)Inicio de sesión con la validación de permisos. 
 9)Alerta de paquetes con más de 24 horas. 
 10)Generación de clientes VIP y su carnet. 
-11)Oficina que envía y recibe más paquetes Casi LISTO, falta mostrar el número de paquetes
-12)Ingresos y egresos por oficina por mes. 
-13)Peso promedio de los paquetes que se envían por oficina. 
-14)Mes del año que se realizan más envíos. Casi LISTO, falta mostrar el número de envíos
-15)Ruta más utilizada. Casi LISTO, falta mostrar el número de veces que es utilizada
+11)Oficina que envía y recibe más paquetes LISTO (/reporte11)
+12)Ingresos y egresos por oficina por mes. FALTA añadir el pago de empleados como egreso
+13)Peso promedio de los paquetes que se envían por oficina. LISTO (/reporte13)
+14)Mes del año que se realizan más envíos. LISTO (/reporte14)
+15)Ruta más utilizada. LISTO (/reporte15)
 16)Recibo de pago de nómina. 
 17)Listado de empleados con las inasistencias. LISTO (/reporte17)
 18)Listado de inasistencia indicando el horario asignado al empleado. LISTO (/reporte18) 
-19)Listado de paquetes con todos los cambios de estatus indicando las fechas de cambio. 
-20)Auditoria del sistema por fecha. 
+19)Listado de paquetes con todos los cambios de estatus indicando las fechas de cambio. LISTO (/reporte19)
+20)Auditoria del sistema por fecha. ¿LISTO? (/reporte20)
 21)Promedio de estancia de los paquetes por cada zona de las oficinas. 
-22)Sucursales de puertos y aeropuertos. LISTO (/reporte18)
+22)Sucursales de puertos y aeropuertos. LISTO (/reporte22)
 23)Histórico de revisión de la flota indicando taller, falla y duración de la revisión. LISTO (/reporte23)
-24)Total de gastos generados por revisión de flotas por mes y por sucursal. Falta que sea por mes y no el total (/reporte24)Listado de Oficinas por Estado ordenadas alfabéticamente.
+24)Total de gastos generados por revisión de flotas por mes y por sucursal. LISTO (/reporte24)
 
 25)Listado de Oficinas por Estado ordenadas alfabéticamente.
 26)Lista de empleados activos, indicando su información básica, cargo que

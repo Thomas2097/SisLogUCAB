@@ -9,13 +9,29 @@ use DB;
 class ReportesController extends Controller
 {
 
+	/*public function index4(){
+
+		$recibo = DB::select(DB::raw("SELECT e.codigo as codigo_envio,p.monto_total,p.fecha_pago,tp.tipo
+			FROM envio e, pago p,tipo_pago tp, paquete pq
+			where pq.codigo = p.fk_paquete and p.fk_tipo_pago =tp.codigo and e.fk_paquete = pq.codigo
+			order by e.codigo"));
+
+		return view("reportes.indexReporte4", compact('recibo'));
+
+	}*/
+
+
+
 	public function index11()
 	{
 
-		$a = DB::select(DB::raw("SELECT s.nombre as nom_env,z.nombre as nom_rec from sucursal s,sucursal z where
-		s.codigo=(select mode() within group (order by fk_sucursal_origen)
-		FROM paquete) and z.codigo=(select mode() within group (order by fk_sucursal_destino)
-		FROM paquete);"));
+		$a = DB::select(DB::raw("SELECT s.nombre as nom_env,z.nombre as nom_rec,
+			(select count(fk_sucursal_origen) as paq_enviados from paquete group by fk_sucursal_origen order by paq_enviados desc limit 1),
+			(select count(fk_sucursal_destino) as paq_recibidos from paquete group by fk_sucursal_destino order by paq_recibidos desc limit 1)
+			from sucursal s,sucursal z where
+			s.codigo=(select mode() within group (order by fk_sucursal_origen)
+			from paquete) and z.codigo=(select mode() within group (order by fk_sucursal_destino)
+			from paquete)"));
 
 		return view("reportes.indexReporte11", compact('a'));
 
@@ -35,7 +51,10 @@ class ReportesController extends Controller
 	public function index14()
 	{
 
-		$mes = DB::select(DB::raw("SELECT mode() within group (order by to_char(fecha_inicio, 'Mon')) as nombre from envio;"));
+		$mes = DB::select(DB::raw("SELECT (to_char(fecha_inicio,'Month'))as mes,count(to_char(fecha_inicio,'Month')) as envios
+		from envio
+		group by to_char(fecha_inicio,'Month') order by envios desc limit 1
+		"));
 
 		return view("reportes.indexReporte14", compact('mes'));
 
@@ -44,10 +63,11 @@ class ReportesController extends Controller
 	public function index15()
 	{
 
-		$ruta = DB::select(DB::raw("SELECT r.nombre as nombre,s.nombre as nombres1,z.nombre as nombres2
-		from ruta r,sucursal s, sucursal z
-		where r.codigo = (SELECT mode() within group (order by fk_ruta)
-		from envio ) and s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino;"));
+		$ruta = DB::select(DB::raw("SELECT r.nombre as nombre,s.nombre as origen,z.nombre as destino,(select count(fk_Ruta)as num_usada from envio 
+			group by fk_ruta order by num_usada desc limit 1)
+			from ruta r,sucursal s, sucursal z
+			where r.codigo = (SELECT mode() within group (order by fk_ruta)
+			from envio ) and s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino"));
 
 		return view("reportes.indexReporte15", compact('ruta'));
 
@@ -73,6 +93,31 @@ class ReportesController extends Controller
 		where e.codigo = he.fk_empleado and a.fk_hor_emp = he.codigo and asistio = 'no' and h.codigo = he.fk_horario; "));
 
 		return view("reportes.indexReporte18", compact('empleados'));
+
+	}
+
+	public function index19()
+	{
+
+		$paq = DB::select(DB::raw("SELECT p.codigo as paquete,e.nombre as estado_paquete,ep.fecha_cambio as fecha
+			from paquete p,estado_paquete e, est_paq ep
+			where ep.fk_paquete = p.codigo and 
+			ep.fk_Estado_paquete = e.codigo
+			order by p.codigo"));
+
+		return view("reportes.indexReporte19", compact('paq'));
+
+	}
+
+	public function index20()
+	{
+
+		$acc = DB::select(DB::raw("SELECT u.nombre as usuario,a.fecha_accion as fecha_accion,p.nombre as privilegio,r.nombre as rol
+			from usuario u,accion a,usu_acc ua,privilegio p,acc_pri ap,rol r
+			where ua.fk_usuario=u.codigo and ua.fk_accion=a.codigo
+			and ap.fk_accion=a.codigo and ap.fk_privilegio = p. codigo and u.fk_rol=r.codigo"));
+
+		return view("reportes.indexReporte20", compact('acc'));
 
 	}
 
@@ -105,10 +150,11 @@ class ReportesController extends Controller
     public function index24()
     {
 
-    	$revisiones = DB::select(DB::raw("SELECT sum(r.costo) as total, s.nombre as nombresucursal
-			from aut_tal r, sucursal s, automovil a
-			where s.codigo = a.fk_sucursal and r.fk_automovil = a.codigo
-			group by s.nombre;"));
+    	$revisiones = DB::select(DB::raw("SELECT sum(r.costo) as total, s.nombre as nombresucursal,to_char(r.fecha_entrada, 'Month-yy') as fecha
+			from aut_tal r, sucursal s, automovil a,taller t
+			where s.codigo = a.fk_sucursal and r.fk_automovil = a.codigo and r.fk_taller = t.codigo
+			group by s.nombre,to_char(r.fecha_entrada, 'Month-yy') 
+			order by s.nombre,fecha;"));
 
     	return view("reportes.indexReporte24", compact('revisiones'));
 

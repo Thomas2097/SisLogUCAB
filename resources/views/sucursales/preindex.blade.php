@@ -64,6 +64,7 @@
                         <table>
                         <tr><h4 style="text-align: center;"><a href="/sucursales">Listado de todas las sucursales</a></h4></tr>
                         <tr><h4 style="text-align: center;"><a href="/reporte22">Sucursales de puertos y aeropuertos</a></h4></tr>
+                        <tr><h4 style="text-align: center;"><a href="/reporte11">Sucursal que más envía y Sucural que recibe más paquetes</a></h4></tr>
                         </table>
                     </div>
 

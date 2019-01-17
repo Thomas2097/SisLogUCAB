@@ -73,9 +73,9 @@
                                 @foreach ($ruta as $r)
                                 <tr>
                                     <td>{{$r->nombre}}</td>
-                                    <td>{{$r->nombres1}}</td>
-                                    <td>{{$r->nombres2}}</td>
-                                    <td></td>
+                                    <td>{{$r->origen}}</td>
+                                    <td>{{$r->destino}}</td>
+                                    <td>{{$r->num_usada}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

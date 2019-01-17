@@ -65,13 +65,15 @@
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
                                 <th>Gasto total</th>
-                                <th>Nombre de la sucursal</th>                          
+                                <th>Nombre de la sucursal</th>  
+                                <th>Fecha</th>                        
                             </thead>
                             <tbody>
                                 @foreach ($revisiones as $r)
                                 <tr>
-                                    <td>{{$r->total}}</td>
                                     <td>{{$r->nombresucursal}}</td>
+                                    <td>{{$r->total}}</td>
+                                    <td>{{$r->fecha}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

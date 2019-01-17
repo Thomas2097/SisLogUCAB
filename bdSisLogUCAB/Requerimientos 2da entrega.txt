@@ -32,7 +32,7 @@ cargo que ocupa (o que ocupó) y fecha de ingreso (egreso si aplica) a la compañí
 final del listado se debe colocar el total de empleados activos y total de empleados
 desincorporados. Por rango de fechas. LISTO (/reporte27)
 28)Listado de Rutas, indicando cuáles oficinas están incluidas. LISTO (/reporte28)
-29)Qué medio de transporte es el más utilizado.
+29)Qué medio de transporte es el más utilizado. LISTO (/reporte29)
 30)Indicar el porcentaje de uso de un medio de transporte según un periodo de
 tiempo.
 31)¿Qué oficina es la que recibe más paquetes? ¿Qué oficina envía más
@@ -55,13 +55,13 @@ alfabéticamente.
 42)Listado de aviones y sus características. LISTO (/reporte42)
 43)Listado de puertos y aeropuertos con la información base. LITO (/reporte43)
 44)Listado de empleados con su horario y ubicación dentro de cada oficina
-ordenando el listado por oficina y por empleado.
+ordenando el listado por oficina y por empleado. LISTO (/reporte44)
 45)Listado de paquetes por clasificación y por oficina en un periodo de tiempo.
 46)Promedio de paquetes diarios por oficina.
 47)Listado de oficinas indicando región, país, continente.
 48)¿Qué tipo de paquetes combinan más medios de transporte?
-49)¿Cuál oficina es la más amplia por estado, región y país?
-50)Listado de usuarios y roles.
+49)¿Cuál oficina es la más amplia por estado, región y país? FALTA ARREGLAR
+50)Listado de usuarios y roles. LISTO (/reporte50)
 51)Listado de acciones ejecutadas por usuario y con qué rol se hizo.
 52)Promedio de días de estancia de un paquete dentro de las zonas de cada
 oficina.

@@ -210,6 +210,19 @@ class ReportesController extends Controller
 
     }
 
+    public function index29()
+    {
+
+    	$medio = DB::select(DB::raw("SELECT count(te.fk_tipo_envio) as total, t.nombre as nombre
+		from tipo_envio as t, env_tip as te
+		where te.fk_tipo_envio = t.codigo
+		group by t.nombre
+		order by count(te.fk_tipo_envio) desc  limit 1 ;"));
+
+    	return view("reportes.indexReporte29", compact('medio'));
+
+    }
+
     public function index34()
     {
 

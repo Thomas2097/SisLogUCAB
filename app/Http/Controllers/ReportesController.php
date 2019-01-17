@@ -210,4 +210,138 @@ class ReportesController extends Controller
 
     }
 
+    public function index34()
+    {
+
+    	$clientes = DB::select(DB::raw("SELECT c.nombre||' '||c.apellido as nombre,c.cedula as cedula,count(p.fk_cliente) as paquetes_enviados
+			from cliente c, paquete p
+			where fk_cliente = c.codigo and lvip='si'
+			group by c.nombre,c.apellido,c.cedula
+			order by nombre asc"));
+
+    	return view("reportes.indexReporte34", compact('clientes'));
+
+    }
+
+    public function index38()
+    {
+
+    	$vehiculos = DB::select(DB::raw("SELECT nombre,tipo_vehiculo,descripcion,capacidad_carga, automovil.codigo as codigo
+		from automovil ,sucursal
+		where fk_sucursal = sucursal.codigo 
+		UNION ALL
+		SELECT nombre,tipo_vehiculo,descripcion,capacidad_carga, avion.codigo as codigo
+		from avion, sucursal
+		where fk_sucursal = sucursal.codigo
+		UNION ALL
+		SELECT nombre,tipo_vehiculo,descripcion,capacidad_carga, barco.codigo as codigo
+		from barco , sucursal 
+		where fk_sucursal = sucursal.codigo"));
+
+    	return view("reportes.indexReporte38", compact('vehiculos'));
+
+    }
+
+    public function index40()
+    {
+
+    	$suc = DB::select(DB::raw("SELECT s.nombre as sucursal ,z.nombre as zona,lu.nombre as estado from sucursal s,lugar l,lugar lu,zona z
+		where s.fk_lugar=l.codigo and l.fk_lugar = lu.codigo and z.fk_sucursal=s.codigo
+		group by s.nombre,lu.nombre,z.nombre,lu.codigo order by lu.codigo,s.nombre,lu.nombre"));
+
+		return view("reportes.indexReporte40", compact('suc'));
+
+    }
+
+    public function index42()
+    {
+
+    	$aviones = DB::select(DB::raw("SELECT codigo as cod,peso as peso,capacidad_carga ,descripcion,envergadura,
+    		longitud,cap_combustible,area,altura,diam_fuselaje,ancho_cabina,velocidad_max,peso_max,num_motores,
+    		car_despegue,fk_modelo from avion"));
+
+    	return view("reportes.indexReporte42", compact('aviones'));
+
+    }
+
+    public function index43()
+    {
+
+    	$aer = DB::select(DB::raw("SELECT a.nombre as nombre,a.cant_term as term,a.cant_pistas as pist,a.capacidad as cap,estado.nombre as ubicacion
+			from aeropuerto a,lugar l, lugar estado,lugar lu
+			where a.fk_lugar = l.codigo and l.fk_lugar = lu.codigo and lu.fk_lugar = estado.codigo"));
+
+    	$puer = DB::select(DB::raw("SELECT p.nombre as nombre,p.cant_puestos as puest,p.cant_areas areas,p.calado as calado,p.uso as uso,estado.nombre as ubicacion
+			from puerto p, lugar l, lugar lu, lugar estado
+			where p.fk_lugar = l.codigo and l.fk_lugar = lu.codigo 
+			and lu.fk_lugar = estado.codigo"));
+
+    	return view("reportes.indexReporte43", compact('aer'), compact('puer'));
+
+    }
+
+    public function index44()
+    {
+
+    	$emp = DB::select(DB::raw("SELECT e.cedula as cedula,e.nombre||' '||e.apellido as nombre,z.nombre as zona,s.nombre as sucursal,h.dia as horario, h.hora_ent as ent, h.hora_sal as sal
+			from empleado e,zon_emp zn, zona z, horario h,sucursal s,hor_emp her
+			where e.codigo = zn.fk_empleado and zn.fk_zona = z.codigo 
+			and z.fk_sucursal = s.codigo
+			and her.fk_empleado = e.codigo and her.fk_horario = h.codigo
+			order by s.codigo,e.codigo"));
+
+    	return view("reportes.indexReporte44", compact('emp'));
+
+    }
+
+    public function index49()
+    {
+
+    	$suc = DB::select(DB::raw("SELECT max(s.capacidad_m2) as ma,estado.nombre as est					
+			from sucursal s,lugar l, lugar estado
+			where s.fk_lugar = l.codigo and l.fk_lugar =estado.codigo
+			group by estado.nombre
+			order by estado.nombre,ma"));
+
+    	return view("reportes.indexReporte49", compact('emp'));
+
+    }
+
+    public function index50()
+    {
+
+    	$usu = DB::select(DB::raw("SELECT u.nombre as usuario, r.nombre as rol
+			from usuario u, rol r
+			where u.fk_Rol = r.codigo"));
+
+    	return view("reportes.indexReporte50", compact('usu'));
+
+    }
+
+    public function index56()
+    {
+
+    	$flota = DB::select(DB::raw("SELECT distinct a.codigo as cod,mar.nombre as marca,mol.nombre as modelo,a.descripcion as descr,s.nombre as suc,max(fecha_entrada) as fecha_entrada,max(fecha_prox) as fecha_proxima
+			from automovil a, marca mar,modelo mol, aut_tal aut,taller,sucursal s
+			where a.fk_modelo = mol.codigo and mol.fk_marca = mar.codigo
+			and  s.codigo = a.fk_sucursal and aut.fk_automovil = a.codigo
+			group by s.nombre,a.codigo,mar.nombre,mol.nombre,a.descripcion"));
+
+    	return view("reportes.indexReporte56", compact('flota'));
+
+    }
+
+    public function index59()
+    {
+
+    	$suc = DB::select(DB::raw("SELECT suc.nombre as suc,ser.nombre as ser
+			from servicio ser, sucursal suc, ser_suc ss
+			where ss.fk_servicio=ser.codigo and ss.fk_sucursal=suc.codigo
+			group by suc.nombre,ser.nombre,suc.codigo
+			order by suc.codigo"));
+
+    	return view("reportes.indexReporte59", compact('suc'));
+
+    }
+
 }

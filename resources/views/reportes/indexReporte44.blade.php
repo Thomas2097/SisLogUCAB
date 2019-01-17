@@ -49,31 +49,39 @@
             <div id="lateral">
                 <h1>Empleados</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/rutas/create">Crear</a></li>
-                    <li><a href="/rutas" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/rutas/update">Modificar</a></li>
-                    <li><a href="/rutas/delete">Eliminar</a></li>
+                    <li><a href="/empleados/create">Crear</a></li>
+                    <li><a href="/empleados" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/empleados/update">Modificar</a></li>
+                    <li><a href="/empleados/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Listado de rutas</h1>
+                <h1>Listado de empleados con su horario y ubicación en la oficina</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Nombre de la ruta</th>
-                                <th>Origen</th>
-                                <th>Destino</th>
+                                <th>Cédula</th>
+                                <th>Nombre</th>
+                                <th>Zona donde trabaja</th>
+                                <th>Sucursal</th>
+                                <th>Horario</th>
+                                <th>Hora de entrada</th>
+                                <th>Hora de salida</th>
                             </thead>
                             <tbody>
-                                @foreach ($rutas as $r)
+                                @foreach ($emp as $v)
                                 <tr>
-                                    <td>{{$r->ruta}}</td>
-                                    <td>{{$r->origen}}</td>
-                                  	<td>{{$r->destino}}</td>
+                                    <td>{{$v->cedula}}</td>
+                                    <td>{{$v->nombre}}</td>
+                                    <td>{{$v->zona}}</td>
+                                    <td>{{$v->sucursal}}</td>
+                                    <td>{{$v->horario}}</td>
+                                    <td>{{$v->ent}}</td>
+                                    <td>{{$v->sal}}</td>
                                 @endforeach
                             </tbody>
                         </table>

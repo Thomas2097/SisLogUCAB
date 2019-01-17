@@ -47,33 +47,37 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Empleados</h1>
+                <h1>Vehículos</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/rutas/create">Crear</a></li>
-                    <li><a href="/rutas" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/rutas/update">Modificar</a></li>
-                    <li><a href="/rutas/delete">Eliminar</a></li>
+                    <li><a href="/vehiculos/create">Crear</a></li>
+                    <li><a href="/vehiculos" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/vehiculos/update">Modificar</a></li>
+                    <li><a href="/vehiculos/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Listado de rutas</h1>
+                <h1>Listado de vehiculos por oficina</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Nombre de la ruta</th>
-                                <th>Origen</th>
-                                <th>Destino</th>
+                                <th>Sucursal a la que pertenece</th>
+                                <th>Código</th>
+                                <th>Tipo de vehículo</th>
+                                <th>Descripcion</th>
+                                <th>Capacidad de carga</th>
                             </thead>
                             <tbody>
-                                @foreach ($rutas as $r)
+                                @foreach ($vehiculos as $v)
                                 <tr>
-                                    <td>{{$r->ruta}}</td>
-                                    <td>{{$r->origen}}</td>
-                                  	<td>{{$r->destino}}</td>
+                                    <td>{{$v->nombre}}</td>
+                                    <td>{{$v->codigo}}</td>
+                                    <td>{{$v->tipo_vehiculo}}</td>
+                                    <td>{{$v->descripcion}}</td>
+                                  	<td>{{$v->capacidad_carga}}</td>
                                 @endforeach
                             </tbody>
                         </table>

@@ -47,33 +47,41 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Empleados</h1>
+                <h1>Vehículos</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/rutas/create">Crear</a></li>
-                    <li><a href="/rutas" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/rutas/update">Modificar</a></li>
-                    <li><a href="/rutas/delete">Eliminar</a></li>
+                    <li><a href="/vehiculos/create">Crear</a></li>
+                    <li><a href="/vehiculos" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/vehiculos/update">Modificar</a></li>
+                    <li><a href="/vehiculos/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Listado de rutas</h1>
+                <h1>Listado de flota con su última fecha de revisión y próxima fecha por oficina</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Nombre de la ruta</th>
-                                <th>Origen</th>
-                                <th>Destino</th>
+                                <th>Código</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Descripcion</th>
+                                <th>Sucursal</th>
+                                <th>Fecha de entrada</th>
+                                <th>Fecha próxima revisión</th>
                             </thead>
                             <tbody>
-                                @foreach ($rutas as $r)
+                                @foreach ($flota as $v)
                                 <tr>
-                                    <td>{{$r->ruta}}</td>
-                                    <td>{{$r->origen}}</td>
-                                  	<td>{{$r->destino}}</td>
+                                    <td>{{$v->cod}}</td>
+                                    <td>{{$v->marca}}</td>
+                                    <td>{{$v->modelo}}</td>
+                                    <td>{{$v->descr}}</td>
+                                  	<td>{{$v->suc}}</td>
+                                  	<td>{{$v->fecha_entrada}}</td>
+                                  	<td>{{$v->fecha_proxima}}</td>
                                 @endforeach
                             </tbody>
                         </table>

@@ -47,33 +47,48 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Empleados</h1>
+                <h1>Aviones</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/rutas/create">Crear</a></li>
-                    <li><a href="/rutas" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/rutas/update">Modificar</a></li>
-                    <li><a href="/rutas/delete">Eliminar</a></li>
+                    <li><a href="/aviones/create">Crear</a></li>
+                    <li><a href="/aviones" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/aviones/update">Modificar</a></li>
+                    <li><a href="/aviones/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Listado de rutas</h1>
+                <h1>Listado de aviones</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Nombre de la ruta</th>
-                                <th>Origen</th>
-                                <th>Destino</th>
+                                <th>Código</th>
+                                <th>Peso</th>
+                                <th>Envergadura</th>
+                                <th>Longitud</th>
+                                <th>Capacidad de carga</th>
+                                <th>Capacidad Combustible</th>
+                                <th>Area</th>
+                                <th>Altura</th>
+                                <th>Diametro fuselaje</th>
+                                <th>Velocidad Máxima</th>
                             </thead>
                             <tbody>
-                                @foreach ($rutas as $r)
+                                @foreach ($aviones as $v)
                                 <tr>
-                                    <td>{{$r->ruta}}</td>
-                                    <td>{{$r->origen}}</td>
-                                  	<td>{{$r->destino}}</td>
+                                    <td>{{$v->cod}}</td>
+                                    <td>{{$v->peso}}</td>
+                                    <td>{{$v->envergadura}}</td>
+                                    <td>{{$v->longitud}}</td>
+                                  	<td>{{$v->capacidad_carga}}</td>
+                                  	<td>{{$v->cap_combustible}}</td>
+                                  	<td>{{$v->area}}</td>
+                                  	<td>{{$v->altura}}</td>
+                                  	<td>{{$v->diam_fuselaje}}</td>
+                                  	<td>{{$v->velocidad_max}}</td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

@@ -47,33 +47,59 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Empleados</h1>
+                <h1>Sucursales</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/rutas/create">Crear</a></li>
-                    <li><a href="/rutas" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/rutas/update">Modificar</a></li>
-                    <li><a href="/rutas/delete">Eliminar</a></li>
+                    <li><a href="/vehiculos/create">Crear</a></li>
+                    <li><a href="/vehiculos" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/vehiculos/update">Modificar</a></li>
+                    <li><a href="/vehiculos/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Listado de rutas</h1>
+                <h1>Listado de puertos y aeropuertos</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Nombre de la ruta</th>
-                                <th>Origen</th>
-                                <th>Destino</th>
+                                <th>Nombre del aeropuerto</th>
+                                <th>Cantidad de terminales</th>
+                                <th>Cantidad de pistas</th>
+                                <th>Capacidad</th>
+                                <th>Ubicación</th>
                             </thead>
                             <tbody>
-                                @foreach ($rutas as $r)
+                                @foreach ($aer as $v)
                                 <tr>
-                                    <td>{{$r->ruta}}</td>
-                                    <td>{{$r->origen}}</td>
-                                  	<td>{{$r->destino}}</td>
+                                    <td>{{$v->nombre}}</td>
+                                    <td>{{$v->term}}</td>
+                                    <td>{{$v->pist}}</td>
+                                    <td>{{$v->cap}}</td>
+                                  	<td>{{$v->ubicacion}}</td>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <table id="puertos" width="80%" cellspacing="0">
+                            <thead>
+                                <th>Nombre del puerto</th>
+                                <th>Cantidad de puestos</th>
+                                <th>Cantidad de areas</th>
+                                <th>Calado</th>
+                                <th>Uso</th>
+                                <th>Ubicación</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($puer as $v)
+                                <tr>
+                                    <td>{{$v->nombre}}</td>
+                                    <td>{{$v->puest}}</td>
+                                    <td>{{$v->areas}}</td>
+                                    <td>{{$v->calado}}</td>
+                                    <td>{{$v->uso}}</td>
+                                  	<td>{{$v->ubicacion}}</td>
                                 @endforeach
                             </tbody>
                         </table>
@@ -92,6 +118,11 @@
     <script type="text/javascript">
         $(document).ready( function () {
             $('#automoviles').DataTable();
+        } );
+    </script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#puertos').DataTable();
         } );
     </script>
 </body>

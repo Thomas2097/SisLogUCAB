@@ -47,33 +47,32 @@
         </div>
         <div id="espaciolateral">
             <div id="lateral">
-                <h1>Empleados</h1>
+                <h1>Usuarios</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/rutas/create">Crear</a></li>
-                    <li><a href="/rutas" style="background-color: green;">Consultar</a></li>
-                    <li><a href="/rutas/update">Modificar</a></li>
-                    <li><a href="/rutas/delete">Eliminar</a></li>
+                    <li><a href="/usuarios/create">Crear</a></li>
+                    <li><a href="/usuarios" style="background-color: green;">Consultar</a></li>
+                    <li><a href="/usuarios/update">Modificar</a></li>
+                    <li><a href="/usuarios/delete">Eliminar</a></li>
                 </ul>
             </div>
 
         </div>
         <div id="centro">
             <div id="principal">
-                <h1>Listado de rutas</h1>
+                <h1>Listado de usuarios y roles</h1>
  <!--               <div style="margin-left:16%; margin-top:30px">-->
                     <div>
                         <table id="automoviles" width="80%" cellspacing="0">
                             <thead>
-                                <th>Nombre de la ruta</th>
-                                <th>Origen</th>
-                                <th>Destino</th>
+                                <th>Nombre de usuario</th>
+                                <th>Nombre del rol</th>
                             </thead>
                             <tbody>
-                                @foreach ($rutas as $r)
+                                @foreach ($usu as $v)
                                 <tr>
-                                    <td>{{$r->ruta}}</td>
-                                    <td>{{$r->origen}}</td>
-                                  	<td>{{$r->destino}}</td>
+                                    <td>{{$v->usuario}}</td>
+                                    <td>{{$v->rol}}</td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

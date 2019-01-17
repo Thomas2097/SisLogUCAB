@@ -502,7 +502,7 @@ create table env_tip(
 	constraint fk_tipo_envio_env_tip foreign key(fk_tipo_envio) references tipo_envio(codigo)
 );
 
-create table emp_suc{
+create table emp_suc(
 codigo serial not null unique,
 fecha_pago date not null,
 fk_empleado integer not null,
@@ -510,7 +510,7 @@ fk_sucursal integer not null,
 constraint pk_codigo_emp_suc primary key (codigo),
 constraint fk_empleado_emp_suc foreign key (fk_empleado)references empleado(codigo),
 constraint fk_sucursal_emp_suc foreign key(fk_sucursal)references sucursal(codigo)
-};
+);
 
 
 

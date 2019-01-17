@@ -159,88 +159,55 @@ class ReportesController extends Controller
     	return view("reportes.indexReporte24", compact('revisiones'));
 
     }
+
+    public function index25()
+    {
+
+    	$suc = DB::select(DB::raw("SELECT s.nombre as nsuc,lu.nombre as estado from sucursal s,lugar l,lugar lu
+			where s.fk_lugar=l.codigo and l.fk_lugar = lu.codigo
+			group by s.nombre,lu.nombre,lu.codigo order by lu.codigo,s.nombre,lu.nombre"));
+
+    	return view("reportes.indexReporte25", compact('suc'));
+
+    }
+
+    public function index26()
+    {
+
+    	$emp = DB::select(DB::raw("SELECT e.cedula as cedula,e.nombre as nombre ,e.apellido as apellido ,e.edo_civil as edo_civil,c.nombre as cargo, e.activo as activo,
+			e.fecha_ingr as fecha_ingreso
+			from empleado e,cargo c
+			where e.fk_Cargo = c.codigo and e.activo = 'si'
+			order by e.codigo"));	
+
+    	return view("reportes.indexReporte26", compact('emp'));
+
+    }
+
+    public function index27()
+    {
+
+    	$emp = DB::select(DB::raw("SELECT e.cedula as cedula,e.nombre||' ' ||e.apellido as nombre_completo,e.edo_civil as edo_civil,c.nombre as cargo,
+			e.fecha_ingr as fecha_ingreso,e.fecha_egre as fecha_egreso, e.activo as activo
+			from empleado e,cargo c
+			where e.fk_Cargo = c.codigo
+			order by e.codigo;"));
+
+    	$num = DB::select(DB::raw("SELECT (select count(*) from empleado where activo='si') as activos,(select count(*) from empleado where activo='no') as egresados;"));
+
+    	return view("reportes.indexReporte27", compact('emp'), compact('num'));
+
+    }
+
+    public function index28()
+    {
+
+    	$rutas = DB::select(DB::raw("SELECT r.nombre as ruta,s.nombre as origen,z.nombre as destino
+		from ruta r,sucursal s, sucursal z
+		where s.codigo = r.fk_sucursal_origen and z.codigo=r.fk_sucursal_destino"));
+
+    	return view("reportes.indexReporte28", compact('rutas'));
+
+    }
+
 }
-/*
-    public function indexDelete()
-    {
-
-        $usuarios=Usuario::all();
-
-        return view("usuarios.delete", compact("usuarios"));
-
-    }
-
-    public function indexUpdate()
-    {
-
-        $usuarios=Usuario::all();
-
-        return view("usuarios.edit", compact("usuarios"));
-
-    }
-
-
-    public function create()
-    {
-    	$roles= DB::table('rol')->get();
-        return view("usuarios.create", ["roles"=>$roles]);
-
-    }
-
-    public function store(Request $request)
-    {
-        $usuario=new Usuario;
-
-        $usuario->nombre=$request->nombre;
-        $usuario->contraseña=$request->contraseña;
-        $usuario->fk_rol=$request->fk_rol;
-
-        $usuario->save();
-        
-        return redirect('usuarios/create');
-
-    }*/
-/*
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($codigo)
-    {
-
-        $usuario = Usuario::where('codigo',$codigo)->first();
-        $roles = DB::table('rol')->get();
-
-        return view('usuarios.update',["usuario"=>$usuario],["roles"=>$roles]);
-
-    }
-
-
-    public function update(Request $request, $codigo)
-    {
-        $nuevoNombre= $request->input('nombre');
-        $nuevoContraseña= $request->input('contraseña');
-        $nuevoFk_rol= $request->input('fk_rol');
-        //----------------------------------------------
-        $usuario = Usuario::find($codigo);
-        $usuario->nombre = $nuevoNombre;
-        $usuario->contraseña = $nuevoContraseña;
-        $usuario->fk_rol = $nuevoFk_rol;
-
-        $usuario->save();
-
-        return redirect('usuarios/update');
-    }
-
-
-    public function destroy($codigo)
-    {
-
-		Cliente::where('fk_usuario','=',$codigo)->delete();
-        Empleado::where('fk_usuario','=',$codigo)->delete();
-       	Usuario::destroy($codigo);
-       	return redirect('usuarios/delete');
-
-    }
-}*/

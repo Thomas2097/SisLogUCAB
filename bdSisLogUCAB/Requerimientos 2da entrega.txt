@@ -23,9 +23,9 @@
 23)Histórico de revisión de la flota indicando taller, falla y duración de la revisión. LISTO (/reporte23)
 24)Total de gastos generados por revisión de flotas por mes y por sucursal. LISTO (/reporte24)
 
-25)Listado de Oficinas por Estado ordenadas alfabéticamente.
-26)Lista de empleados activos, indicando su información básica, cargo que
-ocupa y fecha de ingreso a la compañía.
+25)Listado de Oficinas por Estado ordenadas alfabéticamente. LISTO (/reporte25)
+26)Lista de empleados activos, indicando su información básica, cargo que 
+ocupa y fecha de ingreso a la compañía. LISTO (/reporte26)
 27)Listado de todos los empleados (activos o no) indicando su información
 básica,
 cargo que ocupa (o que ocupó) y fecha de ingreso (egreso si aplica) a la compañía. Al

@@ -73,4 +73,4 @@ reporte debe mostrar el total los cálculos.
 57)Contabilidad: Indicar ingresos y egresos por oficina. Por periodo de tiempo.
 58)Oficinas más costosas por estado y país.
 59)Listado de servicios por oficina. LISTO (/reporte59)
-60)Listado de medios de transportes, agrupados por tipo.
+60)Listado de medios de transportes, agrupados por tipo. LISTO (/reporte60)

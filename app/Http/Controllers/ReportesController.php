@@ -357,4 +357,18 @@ class ReportesController extends Controller
 
     }
 
+    public function index60()
+    {
+
+    	$vehiculos = DB::select(DB::raw("SELECT codigo, peso, capacidad_carga, tipo_vehiculo
+			from avion  
+			UNION SELECT codigo, peso, capacidad_carga, tipo_vehiculo
+			from barco 
+			UNION SELECT codigo, peso, capacidad_carga, tipo_vehiculo
+			from automovil  order by tipo_vehiculo;"));
+
+    	return view("reportes.indexReporte60", compact('vehiculos'));
+
+    }
+
 }

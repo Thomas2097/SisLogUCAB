@@ -130,3 +130,4 @@ Route::get('/reporte49','ReportesController@index49');
 Route::get('/reporte50','ReportesController@index50');
 Route::get('/reporte56','ReportesController@index56');
 Route::get('/reporte59','ReportesController@index59');
+Route::get('/reporte60','ReportesController@index60');

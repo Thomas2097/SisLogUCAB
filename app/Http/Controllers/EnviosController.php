@@ -38,17 +38,17 @@ class EnviosController extends Controller
     }
 */
 
-    public function create()
+    public function create2()
     {
     	$paquetes= DB::table('paquete')->get();
         $rutas= DB::table('ruta')->get();
         $sucursales = DB::table('sucursal')->get();
-        return view("envios.create", ["paquetes"=>$paquetes,"rutas"=>$rutas,"sucursales"=>$sucursales]);
+        return view("envios.create2", ["paquetes"=>$paquetes,"rutas"=>$rutas,"sucursales"=>$sucursales]);
 
     }
-
-    public function store(Request $request)
+    public function store2(Request $request)
     {
+
         $envio=new Envio;
 
         $envio->fecha_inicio=$request->fecha_inicio;
@@ -59,8 +59,23 @@ class EnviosController extends Controller
         $envio->fk_sucursal_destino=$request->fk_sucursal_destino;
 
         $envio->save();
+
+        return redirect('envios/create2');
+
+
+    }
+    public function store(Request $request)
+    {
+        $h = $request->input('fk_ruta');
+        $fecha_inicio = $request->input('fecha_inicio');
+        $fecha_entrega = $request->input('fecha_entrega');
+        $fk_paquete = $request->input('fk_paquete');
+        $or = DB::select('select fk_sucursal_origen from ruta  where codigo = ?',[$h]);
+        $de = DB::select('select fk_sucursal_destino from ruta  where codigo = ?',[$h]);
+        DB::insert('Insert into Envio (fecha_inicio, fecha_entrega, fk_paquete, fk_ruta, fk_sucursal_origen, fk_sucursal_destino) values(?,?,?,?,?,?)',[$fecha_inicio,$fecha_entrega,$fk_paquete,$h,$or[0]->fk_sucursal_origen,$de[0]->fk_sucursal_destino]);
+        /*$*/
         
-        return redirect('envios/create');
+        return redirect('envios');
 
     }
 }

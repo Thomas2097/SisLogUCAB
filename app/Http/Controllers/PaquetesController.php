@@ -74,9 +74,25 @@ class PaquetesController extends Controller
         $paquete->fk_sucursal_destino=$request->fk_sucursal_destino;
 
         $paquete->save();
-        
-        return redirect('envios/create');
+        $si = 'si';
+        $x = $paquete->fk_cliente;
+    $c = DB::select('select count(p.fk_cliente) from cliente c, paquete p where p.fk_cliente = ? and p.fk_cliente = c.codigo group by fk_cliente',[$x]);
+    //$c2=$c[0];
+    $cuatro= 4;
+    if ($c>$cuatro){
 
+        DB::update('update cliente set lvip = ? where codigo = ?',[$si,$x]);
+
+
+        }
+        //$sucursales = DB::table('sucursal')->get();
+        $x = DB::select('select r.nombre, r.codigo
+            from ruta r
+            where r.fk_sucursal_origen = ? ',[$paquete->fk_sucursal_origen]);
+        $paq = DB::select('select p.codigo from paquete p where p.codigo = ?',[$paquete->codigo]);
+        
+        return view("envios.create", compact('x'),compact('paq'));
+        //return redirect('envios/create');
     }
 }
 /*

@@ -47,7 +47,7 @@
             <div id="lateral">
                 <h1>Envios</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/envios/create" style="background-color: green;">Crear</a></li>
+                    <li><a href="/envios/create2" style="background-color: green;">Crear</a></li>
                     <li><a href="/envios">Consultar</a></li>
                     <!--<li><a href="/usuarios/update">Modificar</a></li>
                     <li><a href="/usuarios/delete">Eliminar</a></li>-->
@@ -60,7 +60,7 @@
                 <h1>Registrar un Envio</h1>
              <!--   <div style="margin-left:16%; margin-top:30px">-->
                     <div id="formulario">
-                        <form action="{{ action('EnviosController@store') }}" method="post">
+                        <form action="{{ action('EnviosController@store2') }}" method="post">
                             {{ csrf_field() }}
                             <table>
                                 <tr>
@@ -79,8 +79,8 @@
                                     <td>Paquete:</td>
                                     <td>
                                         <select name="fk_paquete">
-                                            @foreach ($paq as $p)
-                                            <option value="{{$p->codigo}}">{{$p->codigo}}</option>
+                                            @foreach ($paquetes as $paq)
+                                            <option value="{{$paq->codigo}}">{{$paq->codigo}}</option>
                                             @endforeach
                                         </select>
                                     </td>
@@ -89,13 +89,32 @@
                                     <td>Ruta:</td>
                                     <td>
                                         <select name="fk_ruta">
-                                            @foreach ($x as $rut)
+                                            @foreach ($rutas as $rut)
                                             <option value="{{$rut->codigo}}">{{$rut->nombre}}</option>
                                             @endforeach
                                         </select>
                                     </td>
                                 </tr>
-                                
+                                <tr>
+                                    <td>Sucursal de origen:</td>
+                                    <td>
+                                        <select name="fk_sucursal_origen">
+                                            @foreach ($sucursales as $suc)
+                                            <option value="{{$suc->codigo}}">{{$suc->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sucursal de destino:</td>
+                                    <td>
+                                        <select name="fk_sucursal_destino">
+                                            @foreach ($sucursales as $suc2)
+                                            <option value="{{$suc2->codigo}}">{{$suc2->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="2" style="text-align: center">
                                         <input type="submit" name="enviar" value="Enviar" style="padding-left:20px; padding-right: 20px">

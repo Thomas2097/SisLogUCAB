@@ -49,7 +49,7 @@
             <div id="lateral">
                 <h1>Envios</h1>
                 <ul><!--Aquí coloquen los links hacia las otras vistas de sus entidades-->
-                    <li><a href="/envios/create">Crear</a></li>
+                    <li><a href="/envios/create2">Crear</a></li>
                     <li><a href="/envios" style="background-color: green;">Consultar</a></li>
                     <!--<li><a href="/usuarios/update">Modificar</a></li>
                     <li><a href="/usuarios/delete">Eliminar</a></li>-->

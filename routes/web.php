@@ -103,6 +103,8 @@ Route::post('/paquetes','PaquetesController@store');
 Route::get('/envios/create', 'EnviosController@create');
 Route::get('/envios', 'EnviosController@index');
 Route::post('/envios','EnviosController@store');
+Route::get('/envios/create2', 'EnviosController@create2');
+Route::post('/envios2','EnviosController@store2');
 //
 Route::get('/reporte11','ReportesController@index11');
 Route::get('/reporte13','ReportesController@index13');

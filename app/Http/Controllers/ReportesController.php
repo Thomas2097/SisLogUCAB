@@ -345,6 +345,18 @@ class ReportesController extends Controller
 
     }
 
+    public function index55()
+    {
+
+    	$tal = DB::select(DB::raw("SELECT distinct l.nombre as lugar, ta.codigo as cod, ta.nombre as taller
+			from taller ta, lugar l
+			where ta.nombre LIKE '%'||l.nombre||'%' and l.tipo = 'municipio'
+			order by ta.codigo"));
+
+    	return view("reportes.indexReporte55", compact('tal'));
+
+    }
+
     public function index56()
     {
 

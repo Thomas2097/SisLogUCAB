@@ -400,4 +400,32 @@ order by estado.nombre, ma"));
 
     }
 
+    public function indexReciboNormal()
+    {
+
+    	$recibo = DB::select(DB::raw("SELECT (tp.costo+r.costo)*(p.ancho*p.profundidad*p.alto) as monto, p.peso as peso, r.costo as r, tp.costo as yx, e.codigo as paq, p.ancho as an, p.profundidad as pr, p.alto as al
+			from tipo_producto tp, ruta r, paquete p, envio e, cliente c
+			where   tp.codigo=p.fk_tipo_producto and
+			        p.codigo=e.fk_paquete and
+				r.codigo=e.fk_ruta and p.peso >=10 and c.lvip = 'no' and c.codigo = p.fk_cliente
+			UNION SELECT (tp.costo+r.costo)*(p.peso) as monto,p.peso as peso, r.costo as r, tp.costo as yx, e.codigo as paq, p.ancho as an, p.profundidad as pr, p.alto as al
+			from tipo_producto tp, ruta r, paquete p, envio e, cliente c
+			where   tp.codigo=p.fk_tipo_producto and
+			        p.codigo=e.fk_paquete and
+					r.codigo=e.fk_ruta and p.peso < 10 and c.lvip = 'no' and c.codigo = p.fk_cliente
+			UNION SELECT (tp.costo+r.costo)*(p.ancho*p.profundidad*p.alto*0.9) as monto, p.peso as peso, r.costo as r, tp.costo as yx, e.codigo as paq, p.ancho as an, p.profundidad as pr, p.alto as al
+			from tipo_producto tp, ruta r, paquete p, envio e, cliente c
+			where   tp.codigo=p.fk_tipo_producto and
+			        p.codigo=e.fk_paquete and
+				r.codigo=e.fk_ruta and p.peso >=10 and c.lvip = 'si' and c.codigo = p.fk_cliente
+			UNION SELECT (tp.costo+r.costo)*(p.peso*0.9) as monto, p.peso as peso, r.costo as r, tp.costo as yx, e.codigo as paq, p.ancho as an, p.profundidad as pr, p.alto as al
+			from tipo_producto tp, ruta r, paquete p, envio e, cliente c
+			where   tp.codigo=p.fk_tipo_producto and
+			        p.codigo=e.fk_paquete and
+					r.codigo=e.fk_ruta and p.peso < 10 and c.lvip = 'si' and c.codigo = p.fk_cliente;"));
+
+    	return view("reportes.indexReciboNormal", compact('recibo'));
+
+    }
+
 }

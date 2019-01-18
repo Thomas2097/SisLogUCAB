@@ -1,8 +1,8 @@
 1)Registro de asistencia de empleados. LISTO
 2)Cambio de estatus de paquetes durante el envío. 
 3)Envío de paquetes con el medio de transporte, tomar en cuenta duración, costos y fecha estimada de entrega. LISTO
-4)Recibo de envíos. CASI
-5)Para los clientes VIP se otorga 10% de descuento sobre el total a pagar en el envío. 
+4)Recibo de envíos. LISTO (/reciboNormal)
+5)Para los clientes VIP se otorga 10% de descuento sobre el total a pagar en el envío. LISTO (/reciboNormal)
 6)Asignación de roles a usuarios. LISTO
 7)Asignación de permisos a roles. 
 8)Inicio de sesión con la validación de permisos. 

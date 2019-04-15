@@ -1,29 +1,11 @@
-1)Registro de asistencia de empleados. LISTO <br>
-2)Cambio de estatus de paquetes durante el envío. <br>
-3)Envío de paquetes con el medio de transporte, tomar en cuenta duración, costos y fecha estimada de entrega. <br>
-4)Recibo de envíos. <br>
-5)Para los clientes VIP se otorga 10% de descuento sobre el total a pagar en el envío. <br>
-6)Asignación de roles a usuarios. <br>
-7)Asignación de permisos a roles. <br>
-8)Inicio de sesión con la validación de permisos. <br>
-9)Alerta de paquetes con más de 24 horas. <br>
-10)Generación de clientes VIP y su carnet. <br>
-11)Oficina que envía y recibe más paquetes Casi LISTO, falta mostrar el número de paquetes <br>
-12)Ingresos y egresos por oficina por mes. <br>
-13)Peso promedio de los paquetes que se envían por oficina. <br>
-14)Mes del año que se realizan más envíos. Casi LISTO, falta mostrar el número de envíos <br>
-15)Ruta más utilizada. Casi LISTO, falta mostrar el número de veces que es utilizada <br>
-16)Recibo de pago de nómina. <br>
-17)Listado de empleados con las inasistencias. LISTO (/reporte17) <br>
-18)Listado de inasistencia indicando el horario asignado al empleado. LISTO (/reporte18) <br>
-10)Listado de paquetes con todos los cambios de estatus indicando las fechas de cambio. <br>
-20)Auditoria del sistema por fecha. <br>
-21)Promedio de estancia de los paquetes por cada zona de las oficinas. <br>
-22)Sucursales de puertos y aeropuertos. LISTO (/reporte18) <br>
-23)Histórico de revisión de la flota indicando taller, falla y duración de la revisión. LISTO (/reporte23) <br>
-24)Total de gastos generados por revisión de flotas por mes y por sucursal. Falta que sea por mes y no el total (/reporte24) <br>
-	Ésto es lo que se tiene del reporte 24: <br>
-		select sum(r.costo), s.nombre <br>
-		from aut_tal r, sucursal s, automovil a <br>
-		where s.codigo = a.fk_sucursal and r.fk_automovil = a.codigo <br>
-		group by s.nombre; <br>
+Éste proyecto se realizó para la materia bases de datos 1 con la profesora Ana K. Fernández. <br>
+Se utilizó PHP con el framework Láravel y como SMBD utilizamos PostgreSQL (las versiones más nuevas hasta la fecha de cada uno) <br>
+Si usted desea realizar un proyecto similar a este, se le recomienda visitar el canal youtube.com/pildorasinformaticas y realizar el curso de PHP y posteriormente, realizar el curso Láravel del mismo canal. <br>
+Información de interés: <br>
+-No se implementó el uso adecuado de las plantillas blade que trae Láravel, por lo que el código de las vistas de la app puede que sea un tanto difícil de interpretar (además que está un poco desordenado).<br>
+-Debido a algunos contratiempos del semestre, no se realizó la parte del inicio de sesión del usuario.<br>
+-Para mostrar la información de las consultas a la base de datos, se utilizó el plug-in Data tables. Usted puede ver como utilizar adecuadamente esta herramienta si visualiza el código de cualquiera de las vistas de reportes (ej. SislogUCAB/resources/views/empleados/index.php) <br>
+-Si usted desea ver los querys que utilizamos en la aplicación, dirígase a la carpeta http y seleccione cualquiera de los controladores (SisLogUCAB/app/Http/Controllers) el reporte del carnet (SisLogUCAB/app/Http/Controllers/ClientesController.php) <br>
+-Si desea observar con detalle los create, insert, y algunas consultas, de nuestra base de datos, diríjase a SisLogUCAB/bdSisLogUCAB <br>
+Espero que les sea de mucha ayuda esta información, si desea tener una buena experiencia en el desarrollo de su proyecto, recuerde hacer las cosas con mucho tiempo de antelación!
+
